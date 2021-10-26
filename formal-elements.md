@@ -10,8 +10,8 @@
 
  ***המשחק מיועד למחשבים האישיים (PC) .***
 
-# TODO:<שימו כאן ציור-מסך המתאר את המשחק כפי שאתם רואים אותו בדמיון שלכם.> 
-
+   <img src="https://github.com/V-LGame/Dimensional/blob/main/Media/Main1.jpg" />
+   <img src="https://raw.githubusercontent.com/V-LGame/Dimensional/main/Media/Other.jpg" />
 ---
 
 
@@ -104,8 +104,6 @@
    <img src="https://github.com/V-LGame/Dimensional/blob/main/Media/Superliminal.jpg" />
    <img src="https://raw.githubusercontent.com/V-LGame/Dimensional/main/Media/SuperliminalGAMEPLAY1.webp" />
    <img src="https://github.com/V-LGame/Dimensional/blob/main/Media/SuperliminalGAMEPLAY1.1.jpg" />
-   <img src="https://github.com/V-LGame/Dimensional/blob/main/Media/SuperliminalGAMEPLAY1.1.1.jpg" />
-   <img src="https://github.com/V-LGame/Dimensional/blob/main/Media/Superliminal11111.jpg" />
  </p>
 מבין הרכיבים הרשמיים, 
 איזה רכיב (או רכיבים) ידגיש ביותר את הייחוד והמקוריות של המשחק שלכם, לעומת משחקים דומים הקיימים בשוק?
