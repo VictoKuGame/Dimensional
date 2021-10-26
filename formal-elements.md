@@ -91,6 +91,13 @@
    <img src="https://github.com/V-LGame/Dimensional/blob/main/Media/ControlGAMEPLAY11.jpg" />
    <img src="https://raw.githubusercontent.com/V-LGame/Dimensional/main/Media/ControlGAMEPLAY1111.webp" />
  </p>
+ * Beyond two souls :
+   המשחקיות פה מתבטאת בזה שיש לנו את הגיבורה הראשית ואת הנשמה שהולכת איתה לרוב אורך המשחק ועוזרת לה לעבור את השלבים בעלילה. זוהי נקודת דמיון היחידה בין המשחק הזה למשחק שמוצג לעיל מהבחינה שלאותו שלב יכולות להיות כמה פרספקטיבות שונות מעולמות שונים שמשלימים אחד את השני .
+  <p align="center">
+   <img src="https://github.com/V-LGame/Dimensional/blob/main/Media/Beyond2S.jpg" />
+   <img src="https://github.com/V-LGame/Dimensional/blob/main/Media/Beyond2SGAMEPLAY1.jpg" />
+   <img src="https://github.com/V-LGame/Dimensional/blob/main/Media/Beyond2SGAMEPLAY11111.jpg" />
+ </p>
 מבין הרכיבים הרשמיים, 
 איזה רכיב (או רכיבים) ידגיש ביותר את הייחוד והמקוריות של המשחק שלכם, לעומת משחקים דומים הקיימים בשוק?
 
