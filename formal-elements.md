@@ -105,8 +105,10 @@
    <img src="https://raw.githubusercontent.com/V-LGame/Dimensional/main/Media/SuperliminalGAMEPLAY1.webp" />
    <img src="https://github.com/V-LGame/Dimensional/blob/main/Media/SuperliminalGAMEPLAY1.1.jpg" />
  </p>
-מבין הרכיבים הרשמיים, 
-איזה רכיב (או רכיבים) ידגיש ביותר את הייחוד והמקוריות של המשחק שלכם, לעומת משחקים דומים הקיימים בשוק?
-
 
 </div>
+
+
+
+
+
