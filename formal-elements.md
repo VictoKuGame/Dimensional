@@ -88,6 +88,8 @@
  
  <p align="center">
    <img src="https://github.com/V-LGame/Dimensional/blob/main/Media/Control.jpg" />
+   <img src="https://github.com/V-LGame/Dimensional/blob/main/Media/ControlGAMEPLAY11.jpg" />
+   <img src="https://raw.githubusercontent.com/V-LGame/Dimensional/main/Media/ControlGAMEPLAY1111.webp" />
  </p>
 מבין הרכיבים הרשמיים, 
 איזה רכיב (או רכיבים) ידגיש ביותר את הייחוד והמקוריות של המשחק שלכם, לעומת משחקים דומים הקיימים בשוק?
