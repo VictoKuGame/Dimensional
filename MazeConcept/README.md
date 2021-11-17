@@ -10,10 +10,10 @@ Was made as one a weekly task in a unity game development course.
 
 By VictoKu1 .
 
-##### [Camera Controller Script.](https://github.com/VictoKuGame/WEx5-Jupmer/blob/main/Assets/CameraController.cs)
-##### [Enemy Controller Script.](https://github.com/VictoKuGame/WEx5-Jupmer/blob/main/Assets/EnemyController.cs)
-##### [Finish Scene Script.](https://github.com/VictoKuGame/WEx5-Jupmer/blob/main/Assets/Finish1.cs)
-##### [Game Over Screen Script .](https://github.com/VictoKuGame/WEx5-Jupmer/blob/main/Assets/GameOverScreen.cs)
-##### [Player Control Script .](https://github.com/VictoKuGame/WEx5-Jupmer/blob/main/Assets/Hero.cs)
-##### [Level 2 Meteor Spawning Script.](https://github.com/VictoKuGame/WEx5-Jupmer/blob/main/Assets/SpawnManager.cs)
-##### [Start Screen Script.](https://github.com/VictoKuGame/WEx5-Jupmer/blob/main/Assets/Start.cs)
+
+
+##### [Player Controller Script.](https://github.com/VictoKuGame/Dimensional/blob/main/MazeConcept/Assets/Scripts/PlayerControllerS.cs)
+
+Description :
+
+Created a small maze with a top-down 2D perspective, hwere the main player is a white dot which should find a way from the starting room to the finish room, which located on the other side of the maze. The unique feature of this mini game (which should represent the whole idea of the biggest game is the ability to look at the same map from several perspective where some parts are staying the same not regarding the perspective and some parts are changing respectively to the perspective the player has on every moment.
