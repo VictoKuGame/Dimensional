@@ -8,7 +8,6 @@
 
 למעבר להסבר לחץ [כאן](https://github.com/V-LGame/Dimensional/blob/main/formal-elements.md) 
 
-## מטלה מתגלגת לשבוע 5 : 
-  
-למעבר להסבר לחץ [כאן](https://github.com/VictoKuGame/Dimensional/tree/main/MazeConcept)
+## מטלה מתגלגת לשבוע 5 : למעבר להסבר לחץ [כאן](https://github.com/VictoKuGame/Dimensional/tree/main/MazeConcept)
+
 </div>
