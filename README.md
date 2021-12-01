@@ -14,5 +14,15 @@
 
 
 [![](http://img.youtube.com/vi/Y7tY3khI5DM/0.jpg)](http://www.youtube.com/watch?v=Y7tY3khI5DM "Dimensional Maze Concept.")
+
+## מטלה מתגלגת לשבוע 7 : למעבר להסבר לחץ [כאן](https://github.com/VictoKuGame/Dimensional/tree/main/Maze5)
+
+[Visit us on itch.io](https://victoku1.itch.io/mazesimulation1)
+
+  
+  
   
 </div>
+
+
+
