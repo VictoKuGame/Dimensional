@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class AnimatorManager : MonoBehaviour
 {
     Animator animator;
@@ -59,11 +58,7 @@ public class AnimatorManager : MonoBehaviour
         else
         {
             snappedVertical = 0;
-        }
-      
-      
-      
-      
+        } 
         #endregion 
         animator.SetFloat(horizontal, snappedHorizontal, 0.1f, Time.deltaTime);
         animator.SetFloat(vertical, snappedVertical, 0.1f, Time.deltaTime);

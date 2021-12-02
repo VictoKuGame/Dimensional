@@ -1,14 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
-using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Utilities;
 public class PlayerManager : MonoBehaviour
 {
     InputManager inputManager;
     PlayerLocomotion playerLocomotion;
-     CameraManager cameraManager;
+    CameraManager cameraManager;
     private void Awake()
     {
         inputManager = gameObject.GetComponent<InputManager>();
@@ -23,7 +20,9 @@ public class PlayerManager : MonoBehaviour
     {
         playerLocomotion.HandleAllMovements();
     }
-    private void LateUpdate(){
-        cameraManager.FollowTarget();
+    private void LateUpdate()
+    {
+        cameraManager.HandleAllCameraMovement();
     }
 }
+
