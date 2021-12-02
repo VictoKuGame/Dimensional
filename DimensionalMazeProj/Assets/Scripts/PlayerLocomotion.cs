@@ -7,7 +7,11 @@ public class PlayerLocomotion : MonoBehaviour
     Vector3 moveDirection;
     Transform cameraObject;
     Rigidbody playerRigidbody;
-    public float movementSpeed = 7.0f;
+    public bool isSprinting;
+    [Header("Movement Speeds")]
+    public float walkingSpeed = 1.5f;
+    public float runningSpeed = 5.0f;
+    public float sprintingSpeed = 9.0f;
     public float rotationSpeed = 11.0f;
     private void Awake()
     {
@@ -26,7 +30,25 @@ public class PlayerLocomotion : MonoBehaviour
         moveDirection += cameraObject.right * inputManager.horizontalInput;
         moveDirection.Normalize();
         moveDirection.y = 0;
-        moveDirection *= movementSpeed;
+
+
+
+
+        if (isSprinting)
+        {
+            moveDirection*=sprintingSpeed;
+        }
+        else
+        {
+            if (inputManager.moveAmount >= 0.5f)
+            {
+                moveDirection *= runningSpeed;
+            }
+            else
+            {
+                moveDirection *= walkingSpeed;
+            }
+        }
         Vector3 movementVelocity = moveDirection;
         playerRigidbody.velocity = movementVelocity;
     }
@@ -39,8 +61,9 @@ public class PlayerLocomotion : MonoBehaviour
         targetDirection.Normalize();
         targetDirection.y = 0;
 
-        if(targetDirection==Vector3.zero){
-            targetDirection=transform.forward;
+        if (targetDirection == Vector3.zero)
+        {
+            targetDirection = transform.forward;
         }
         Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
         Quaternion playerRotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
