@@ -8,12 +8,12 @@
 
 למעבר להסבר לחץ [כאן](https://github.com/V-LGame/Dimensional/blob/main/formal-elements.md) .
   
-## מטלה מתגלגת לשבוע 7 : למעבר להסבר לחץ [כאן](https://github.com/VictoKuGame/Dimensional/tree/main/DimensionalMazeProj)
+## מטלה מתגלגת לשבוע 7 : למעבר להסבר לחץ [כאן](https://github.com/VictoKuGame/Dimensional/tree/main/DimensionalMazeProj).
 
 [Visit us on itch.io](https://victoku1.itch.io/mazesimulation1)
 
 
-## מטלה מתגלגת לשבוע 5 : למעבר להסבר לחץ [כאן](https://github.com/VictoKuGame/Dimensional/tree/main/MazeConcept)
+## מטלה מתגלגת לשבוע 5 : למעבר להסבר לחץ [כאן](https://github.com/VictoKuGame/Dimensional/tree/main/MazeConcept).
 
 [Visit us on itch.io](https://victoku1.itch.io/dimensional-maze-concept)
 
