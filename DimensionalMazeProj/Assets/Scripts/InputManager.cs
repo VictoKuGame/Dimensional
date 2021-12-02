@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 public class InputManager : MonoBehaviour
 {
-
     PlayerLocomotion playerLocomotion;
     PlayerControls playerControls;
     AnimatorManager animatorManager;
@@ -15,10 +14,16 @@ public class InputManager : MonoBehaviour
     public float verticalInput;
     public float horizontalInput;
     public bool bInput;
+    public bool sInput;
+    private GameObject EnvironmentTypeR1;
+    private GameObject EnvironmentTypeQ1;
     private void Awake()
     {
         animatorManager = gameObject.GetComponent<AnimatorManager>();
         playerLocomotion = gameObject.GetComponent<PlayerLocomotion>();
+        EnvironmentTypeR1 = GameObject.FindGameObjectWithTag("EnvironmentTypeR1");
+        EnvironmentTypeQ1 = GameObject.FindGameObjectWithTag("EnvironmentTypeQ1");
+        EnvironmentTypeQ1.SetActive(false);
     }
     private void OnEnable()
     {
@@ -29,6 +34,8 @@ public class InputManager : MonoBehaviour
             playerControls.PlayerMovement.Camera.performed += i => cameraInput = i.ReadValue<Vector2>();
             playerControls.PlayerActions.B.performed += i => bInput = true;
             playerControls.PlayerActions.B.canceled += i => bInput = false;
+            playerControls.PlayerActions.S.performed += i => sInput = true;
+            playerControls.PlayerActions.S.canceled += i => sInput = false;
         }
         playerControls.Enable();
     }
@@ -40,6 +47,7 @@ public class InputManager : MonoBehaviour
     {
         HandleMovementInput();
         HandleSprintingInput();
+        HandleVisionInput();
         //*HandleJumpingInput();
         //*HandleActionInput();
     }
@@ -50,7 +58,7 @@ public class InputManager : MonoBehaviour
         cameraInputX = cameraInput.x;
         cameraInputY = cameraInput.y;
         moveAmount = Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput));
-        animatorManager.UpdateAnimatorValues(0, moveAmount,playerLocomotion.isSprinting);
+        animatorManager.UpdateAnimatorValues(0, moveAmount, playerLocomotion.isSprinting);
     }
     private void HandleSprintingInput()
     {
@@ -63,8 +71,20 @@ public class InputManager : MonoBehaviour
             playerLocomotion.isSprinting = false;
         }
     }
+    private void HandleVisionInput()
+    {
+        if (sInput)
+        {
+            EnvironmentTypeR1.SetActive(false);
+            EnvironmentTypeQ1.SetActive(true);
+        }
+        else
+        {
+            EnvironmentTypeR1.SetActive(true);
+            EnvironmentTypeQ1.SetActive(false);
+        }
+    }
 }
-
 
 
 
