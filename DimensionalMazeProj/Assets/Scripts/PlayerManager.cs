@@ -8,9 +8,11 @@ public class PlayerManager : MonoBehaviour
 {
     InputManager inputManager;
     PlayerLocomotion playerLocomotion;
+     CameraManager cameraManager;
     private void Awake()
     {
         inputManager = gameObject.GetComponent<InputManager>();
+        cameraManager = FindObjectOfType(typeof(CameraManager)) as CameraManager;
         playerLocomotion = gameObject.GetComponent<PlayerLocomotion>();
     }
     private void Update()
@@ -20,5 +22,8 @@ public class PlayerManager : MonoBehaviour
     private void FixedUpdate()
     {
         playerLocomotion.HandleAllMovements();
+    }
+    private void LateUpdate(){
+        cameraManager.FollowTarget();
     }
 }
