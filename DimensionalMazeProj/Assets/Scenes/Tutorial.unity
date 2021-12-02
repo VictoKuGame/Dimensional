@@ -150,8 +150,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 298226051}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.58, y: 28.0606, z: -30.04}
-  m_LocalScale: {x: 1, y: 1.78, z: 3.1736763}
+  m_LocalPosition: {x: -0.598, y: 28.0606, z: -29.522}
+  m_LocalScale: {x: 1, y: 1.78, z: 3.9324903}
   m_Children: []
   m_Father: {fileID: 615515606}
   m_RootOrder: 0
@@ -605,7 +605,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   m_LocalRotation: {x: 0.10938163, y: 0.8754261, z: -0.40821788, w: 0.23456968}
-  m_LocalPosition: {x: 3692, y: -556, z: 2912}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children: []
   m_Father: {fileID: 2083439590}
@@ -1054,7 +1054,7 @@ GameObject:
   - component: {fileID: 1132161835}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
