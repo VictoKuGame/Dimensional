@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,8 @@ public class CameraManager : MonoBehaviour
     public float cameraPivotSpeed = 2;
     public float lookAngle;//*Camera down-up perspective.
     public float pivotAngle;//*Camera left-right perspective.
+    public float minimumPivotAngle = -35;
+    public float maximumPivotAngle = 35;
     private void Awake()
     {
         inputManager = FindObjectOfType(typeof(InputManager)) as InputManager;
@@ -32,7 +35,7 @@ public class CameraManager : MonoBehaviour
     {
         lookAngle = lookAngle + (inputManager.cameraInputX * cameraLookSpeed);
         pivotAngle = pivotAngle - (inputManager.cameraInputY * cameraPivotSpeed);
-
+        pivotAngle = Mathf.Clamp(pivotAngle, minimumPivotAngle, maximumPivotAngle);
 
         //*Should make the camera turn accordingly to the player rotation .
         Vector3 rotation = Vector3.zero;
