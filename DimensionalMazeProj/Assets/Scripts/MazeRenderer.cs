@@ -8,30 +8,23 @@ public class MazeRenderer : MonoBehaviour
     [SerializeField]
     [Range(1, 50)]
     private int width = 10;
-
     [SerializeField]
     [Range(1, 50)]
     private int height = 10;
-
     [SerializeField]
     private float size = 1f;
-
     [SerializeField]
     private Transform wallPrefab = null;
-
     [SerializeField]
     private Transform floorPrefab = null;
-
     // Start is called before the first frame update
     void Start()
     {
         var maze = MazeGenerator.Generate(width, height);
         Draw(maze);
     }
-
     private void Draw(WallState[,] maze)
     {
-
         var floor = Instantiate(floorPrefab, transform);
         floor.localScale = new Vector3(width, 1, height);
 
@@ -48,7 +41,6 @@ public class MazeRenderer : MonoBehaviour
                     topWall.position = position + new Vector3(0, 0, size / 2);
                     topWall.localScale = new Vector3(size, topWall.localScale.y, topWall.localScale.z);
                 }
-
                 if (cell.HasFlag(WallState.LEFT))
                 {
                     var leftWall = Instantiate(wallPrefab, transform) as Transform;
@@ -56,7 +48,6 @@ public class MazeRenderer : MonoBehaviour
                     leftWall.localScale = new Vector3(size, leftWall.localScale.y, leftWall.localScale.z);
                     leftWall.eulerAngles = new Vector3(0, 90, 0);
                 }
-
                 if (i == width - 1)
                 {
                     if (cell.HasFlag(WallState.RIGHT))
@@ -67,7 +58,6 @@ public class MazeRenderer : MonoBehaviour
                         rightWall.eulerAngles = new Vector3(0, 90, 0);
                     }
                 }
-
                 if (j == 0)
                 {
                     if (cell.HasFlag(WallState.DOWN))
@@ -78,14 +68,6 @@ public class MazeRenderer : MonoBehaviour
                     }
                 }
             }
-
         }
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

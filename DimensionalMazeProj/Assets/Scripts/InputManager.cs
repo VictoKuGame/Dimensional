@@ -48,8 +48,6 @@ public class InputManager : MonoBehaviour
         HandleMovementInput();
         HandleSprintingInput();
         HandleVisionInput();
-        //*HandleJumpingInput();
-        //*HandleActionInput();
     }
     private void HandleMovementInput()
     {
@@ -62,14 +60,7 @@ public class InputManager : MonoBehaviour
     }
     private void HandleSprintingInput()
     {
-        if (bInput && moveAmount > 0.5f)
-        {
-            playerLocomotion.isSprinting = true;
-        }
-        else
-        {
-            playerLocomotion.isSprinting = false;
-        }
+        playerLocomotion.isSprinting = (bInput && moveAmount > 0.5f);
     }
     private void HandleVisionInput()
     {
