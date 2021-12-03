@@ -12,21 +12,8 @@
 
 [Visit us on itch.io](https://victoku1.itch.io/mazesimulation1)
 
+[![](http://img.youtube.com/vi/L4ISZooIM3Q/0.jpg)](http://www.youtube.com/watch?v=L4ISZooIM3Q "DimensionalMazeProj Tutorial And Models Demonstration .")
 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  [![](http://img.youtube.com/vi/L4ISZooIM3Q/0.jpg)](http://www.youtube.com/watch?v=L4ISZooIM3Q "DimensionalMazeProj Tutorial And Models Demonstration .
-Сох")
 ## מטלה מתגלגת לשבוע 5 : למעבר להסבר לחץ [כאן](https://github.com/VictoKuGame/Dimensional/tree/main/MazeConcept).
 
 [Visit us on itch.io](https://victoku1.itch.io/dimensional-maze-concept)
