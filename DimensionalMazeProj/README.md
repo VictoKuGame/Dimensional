@@ -4,13 +4,14 @@
 
 [![](http://img.youtube.com/vi/L4ISZooIM3Q/0.jpg)](http://www.youtube.com/watch?v=L4ISZooIM3Q "DimensionalMazeProj Tutorial And Models Demonstration .")
 
+# Controls
 Use W,A,S,D to move , SPACE to change the dimension( where some walls may change their status.
 
 Was made as one a weekly task in a unity game development course.
 
 By VictoKu1 .
 
-Description:
+# Description
 
 The massive changes are:
 1. Added a tutorial level with a short explanations of the controls.
