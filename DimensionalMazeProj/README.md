@@ -1,5 +1,7 @@
 # Dimensional Maze Mechanics .
 
+[שאלות  לסעיף א במטלה המתגלגלת](https://github.com/VictoKuGame/Dimensional/blob/main/DimensionalMazeProj/Questions.md)
+
 [Visit us on itch.io](https://victoku1.itch.io/mazesimulation1)
 
 [![](http://img.youtube.com/vi/L4ISZooIM3Q/0.jpg)](http://www.youtube.com/watch?v=L4ISZooIM3Q "DimensionalMazeProj Tutorial And Models Demonstration .")
