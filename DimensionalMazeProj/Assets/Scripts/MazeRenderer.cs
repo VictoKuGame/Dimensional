@@ -26,7 +26,7 @@ public class MazeRenderer : MonoBehaviour
     private void Draw(WallState[,] maze)
     {
         var floor = Instantiate(floorPrefab, transform);
-        floor.localScale = new Vector3(width, 1, height);
+        floor.localScale = new Vector3((float)width/10, 1, (float)height/10);
 
         for (int i = 0; i < width; ++i)
         {

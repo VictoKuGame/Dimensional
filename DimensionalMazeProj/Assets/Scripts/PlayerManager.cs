@@ -30,7 +30,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Finish"))
         {
-           SceneManager.LoadScene("SampleScene");
+           SceneManager.LoadScene("Loader");
         }
     }
 }

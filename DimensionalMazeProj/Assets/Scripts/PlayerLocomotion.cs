@@ -65,3 +65,14 @@ public class PlayerLocomotion : MonoBehaviour
         transform.rotation = playerRotation;
     }
 }
+
+
+
+
+
+
+
+
+
+
+

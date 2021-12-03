@@ -74,3 +74,5 @@ public class CameraManager : MonoBehaviour
         cameraTransform.localPosition = cameraVectorPosition;
     }
 }
+
+
