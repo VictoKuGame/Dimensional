@@ -8,6 +8,7 @@ public class PlayerManager : MonoBehaviour
     InputManager inputManager;
     PlayerLocomotion playerLocomotion;
     CameraManager cameraManager; 
+    [SerializeField] Slider HP;
     private void Awake()
     {
         inputManager = gameObject.GetComponent<InputManager>();
@@ -16,7 +17,7 @@ public class PlayerManager : MonoBehaviour
     }
     private void Update()
     {
-        inputManager.HandleAllInputs(); 
+        inputManager.HandleAllInputs();
     }
     private void FixedUpdate()
     {

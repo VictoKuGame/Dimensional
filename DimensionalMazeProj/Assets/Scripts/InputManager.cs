@@ -18,16 +18,23 @@ public class InputManager : MonoBehaviour
     public bool bInput;
     public bool sInput;
     public bool pInput;
-    private GameObject EnvironmentTypeR1;
-    private GameObject EnvironmentTypeQ1;
+    private GameObject environmentTypeR1;
+    private GameObject environmentTypeQ1;
     public Maze1 maze1;
+
+
+
+
+
+    [SerializeField] Slider scaleSliderS;
+    [SerializeField] Slider scaleSliderP;
     private void Awake()
     {
         animatorManager = gameObject.GetComponent<AnimatorManager>();
         playerLocomotion = gameObject.GetComponent<PlayerLocomotion>();
-        EnvironmentTypeR1 = GameObject.FindGameObjectWithTag("EnvironmentTypeR1");
-        EnvironmentTypeQ1 = GameObject.FindGameObjectWithTag("EnvironmentTypeQ1");
-        EnvironmentTypeQ1.SetActive(false);
+        environmentTypeR1 = GameObject.FindGameObjectWithTag("EnvironmentTypeR1");
+        environmentTypeQ1 = GameObject.FindGameObjectWithTag("EnvironmentTypeQ1");
+        environmentTypeQ1.SetActive(false);
     }
     private void OnEnable()
     {
@@ -67,6 +74,11 @@ public class InputManager : MonoBehaviour
     private void HandleSprintingInput()
     {
         playerLocomotion.isSprinting = (bInput && moveAmount > 0.5f);
+        if (bInput && !sInput && !pInput)
+        {
+            scaleSliderS.value += 1;
+            scaleSliderP.value += 1;
+        }
     }
     private void HandleVisionInput()
     {
@@ -74,35 +86,44 @@ public class InputManager : MonoBehaviour
         string sceneName = currentScene.name;
         if (sceneName == "SampleScene")
         {
-            if (sInput)
+            if (sInput && scaleSliderS.value > 0)
             {
-                EnvironmentTypeR1.SetActive(false);
-                EnvironmentTypeQ1.SetActive(true);
+                environmentTypeR1.SetActive(false);
+                environmentTypeQ1.SetActive(true);
                 maze1.generateAnotherOne(true, false);
+                scaleSliderS.value -= 1;
             }
-            else if (pInput)
+            else if (pInput && scaleSliderP.value > 0)
             {
-                EnvironmentTypeR1.SetActive(true);
-                EnvironmentTypeQ1.SetActive(false);
+                environmentTypeR1.SetActive(true);
+                environmentTypeQ1.SetActive(false);
                 maze1.generateAnotherOne(false, true);
+                scaleSliderP.value -= 1;
             }
             else
             {
-                EnvironmentTypeR1.SetActive(true);
-                EnvironmentTypeQ1.SetActive(true);
+                environmentTypeR1.SetActive(true);
+                environmentTypeQ1.SetActive(true);
             }
         }
         else
         {
-            if (sInput)
+            if (sInput && scaleSliderS.value > 0)
             {
-                EnvironmentTypeR1.SetActive(false);
-                EnvironmentTypeQ1.SetActive(true);
+                environmentTypeR1.SetActive(false);
+                environmentTypeQ1.SetActive(true);
+                scaleSliderS.value -= 1;
+            }
+            else if (pInput && scaleSliderP.value > 0)
+            {
+                environmentTypeR1.SetActive(false);
+                environmentTypeQ1.SetActive(true);
+                scaleSliderP.value -= 1;
             }
             else
             {
-                EnvironmentTypeR1.SetActive(true);
-                EnvironmentTypeQ1.SetActive(false);
+                environmentTypeR1.SetActive(true);
+                environmentTypeQ1.SetActive(false);
             }
         }
     }

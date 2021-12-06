@@ -158,8 +158,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 792, y: 453}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 792, y: 487}
+  m_SizeDelta: {x: 0, y: -773.8346}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &80237656
 MonoBehaviour:
@@ -951,8 +951,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -761, y: -467.05505}
-  m_SizeDelta: {x: 0, y: -827.4007}
+  m_AnchoredPosition: {x: -759, y: -452.5}
+  m_SizeDelta: {x: 0, y: -855}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1347335146
 MonoBehaviour:
@@ -1241,8 +1241,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -759, y: -427}
-  m_SizeDelta: {x: 0, y: -833.7679}
+  m_AnchoredPosition: {x: -759, y: -427.5}
+  m_SizeDelta: {x: 0, y: -835}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1493069568
 MonoBehaviour:
@@ -2069,6 +2069,8 @@ MonoBehaviour:
   sInput: 0
   pInput: 0
   maze1: {fileID: 1656839641}
+  scaleSliderS: {fileID: 1347335146}
+  scaleSliderP: {fileID: 1493069568}
 --- !u!95 &2083439584
 Animator:
   serializedVersion: 3
@@ -2117,6 +2119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe7126abe618da4458fc4a4a7eab6a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HP: {fileID: 80237656}
 --- !u!136 &2083439587
 CapsuleCollider:
   m_ObjectHideFlags: 0
