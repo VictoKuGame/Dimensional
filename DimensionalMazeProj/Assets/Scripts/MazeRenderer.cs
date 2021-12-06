@@ -1,33 +1,28 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MazeRenderer : MonoBehaviour
 {
 
-    [SerializeField]
-    [Range(1, 50)]
     private int width = 10;
-    [SerializeField]
-    [Range(1, 50)]
     private int height = 10;
-    [SerializeField]
     private float size = 1f;
-    [SerializeField]
     private Transform wallPrefab = null;
-    [SerializeField]
     private Transform floorPrefab = null;
     // Start is called before the first frame update
-    void Start()
+    public void initMap(int width,int height,float size,Transform wallPrefab,Transform floorPrefab){
+        this.width=width;
+        this.height=height;
+        this.size=size;
+        this.wallPrefab=wallPrefab;
+        this.floorPrefab=floorPrefab;
+        Draw();
+    }
+    private void Draw()
     {
         var maze = MazeGenerator.Generate(width, height);
-        Draw(maze);
-    }
-    private void Draw(WallState[,] maze)
-    {
-        var floor = Instantiate(floorPrefab, transform);
-        floor.localScale = new Vector3((float)width/10, 1, (float)height/10);
-
         for (int i = 0; i < width; ++i)
         {
             for (int j = 0; j < height; ++j)
