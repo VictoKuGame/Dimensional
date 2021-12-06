@@ -55,7 +55,7 @@ which is invoked once for any initial cell in the area.
 ##### [Input Management Script.](https://github.com/VictoKuGame/Dimensional/blob/main/DimensionalMazeProj/Assets/Scripts/InputManager.cs)
 ##### [Maze Renderering Main Control Script.](https://github.com/VictoKuGame/Dimensional/blob/main/DimensionalMazeProj/Assets/Scripts/Maze1.cs)
 ##### [Player Movement Script.](https://github.com/VictoKuGame/Dimensional/blob/main/DimensionalMazeProj/Assets/Scripts/PlayerLocomotion.cs)
-##### [Player Controlling Script.](https://github.com/VictoKuGame/Dimensional/blob/main/DimensionalMazeProj/Assets/Scripts/PlayerManager.cs)
+##### [Player Controlling Script](https://github.com/VictoKuGame/Dimensional/blob/main/DimensionalMazeProj/Assets/Scripts/PlayerManager.cs)
 
 
 
