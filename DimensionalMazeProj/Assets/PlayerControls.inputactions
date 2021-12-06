@@ -11,7 +11,8 @@
                     "id": "57babd31-666b-47ab-a04a-b3c7deb6db42",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Camera",
@@ -19,7 +20,8 @@
                     "id": "230e01e5-0bb4-48a9-b171-de8a3d9b7324",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -211,7 +213,8 @@
                     "id": "c9d25dec-3f66-4dab-bee5-cad0d844e3b7",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "S",
@@ -219,7 +222,17 @@
                     "id": "4147f956-a0ea-4912-9336-c80995c29a0c",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "P",
+                    "type": "Button",
+                    "id": "b90a78b3-27a1-40e4-a4cb-888f84b097aa",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -253,6 +266,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "S",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9e8092ff-d22e-4dcd-80dd-ad9e74920134",
+                    "path": "<Keyboard>/ctrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "P",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

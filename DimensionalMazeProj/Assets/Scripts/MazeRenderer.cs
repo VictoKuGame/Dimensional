@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class MazeRenderer : MonoBehaviour
 {
-
     private int width = 10;
     private int height = 10;
     private float size = 1f;
@@ -13,6 +12,9 @@ public class MazeRenderer : MonoBehaviour
     private Transform floorPrefab = null;
     // Start is called before the first frame update
     public void initMap(int width,int height,float size,Transform wallPrefab,Transform floorPrefab){
+        foreach (Transform child in transform) {
+             GameObject.Destroy(child.gameObject);
+        }
         this.width=width;
         this.height=height;
         this.size=size;

@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class InputManager : MonoBehaviour
 {
     PlayerLocomotion playerLocomotion;
@@ -15,8 +17,10 @@ public class InputManager : MonoBehaviour
     public float horizontalInput;
     public bool bInput;
     public bool sInput;
+    public bool pInput;
     private GameObject EnvironmentTypeR1;
     private GameObject EnvironmentTypeQ1;
+    public Maze1 maze1;
     private void Awake()
     {
         animatorManager = gameObject.GetComponent<AnimatorManager>();
@@ -36,6 +40,8 @@ public class InputManager : MonoBehaviour
             playerControls.PlayerActions.B.canceled += i => bInput = false;
             playerControls.PlayerActions.S.performed += i => sInput = true;
             playerControls.PlayerActions.S.canceled += i => sInput = false;
+            playerControls.PlayerActions.P.performed += i => pInput = true;
+            playerControls.PlayerActions.P.canceled += i => pInput = false;
         }
         playerControls.Enable();
     }
@@ -64,19 +70,43 @@ public class InputManager : MonoBehaviour
     }
     private void HandleVisionInput()
     {
-        if (sInput)
+        Scene currentScene = SceneManager.GetActiveScene();
+        string sceneName = currentScene.name;
+        if (sceneName == "SampleScene")
         {
-            EnvironmentTypeR1.SetActive(false);
-            EnvironmentTypeQ1.SetActive(true);
+            if (sInput)
+            {
+                EnvironmentTypeR1.SetActive(false);
+                EnvironmentTypeQ1.SetActive(true);
+                maze1.generateAnotherOne(true, false);
+            }
+            else if (pInput)
+            {
+                EnvironmentTypeR1.SetActive(true);
+                EnvironmentTypeQ1.SetActive(false);
+                maze1.generateAnotherOne(false, true);
+            }
+            else
+            {
+                EnvironmentTypeR1.SetActive(true);
+                EnvironmentTypeQ1.SetActive(true);
+            }
         }
         else
         {
-            EnvironmentTypeR1.SetActive(true);
-            EnvironmentTypeQ1.SetActive(false);
+            if (sInput)
+            {
+                EnvironmentTypeR1.SetActive(false);
+                EnvironmentTypeQ1.SetActive(true);
+            }
+            else
+            {
+                EnvironmentTypeR1.SetActive(true);
+                EnvironmentTypeQ1.SetActive(false);
+            }
         }
     }
 }
-
 
 
 

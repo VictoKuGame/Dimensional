@@ -17,8 +17,9 @@ public class Maze1 : MonoBehaviour
     [SerializeField]
     private Transform floorPrefab = null;
     public MazeRenderer mazeRenderer1;
-
     public MazeRenderer mazeRenderer2;
+    public GameObject light;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,11 +27,25 @@ public class Maze1 : MonoBehaviour
         {
             for (int b = 0; b < height; b++)
             {
+                if (a % 10 == 0 && b % 10 == 0)
+                {
+                    Instantiate(light, transform);
+                }
                 var floor = Instantiate(floorPrefab, transform.position + new Vector3((float)a - (width / 2), 0, (float)b - (height / 2)), transform.rotation);
                 floor.transform.SetParent(transform);
             }
         }
-        mazeRenderer1.initMap(width,height,size,wallPrefab,floorPrefab);
-        mazeRenderer2.initMap(width,height,size,wallPrefab,floorPrefab);
+        generateAnotherOne(true, true);
+    }
+    public void generateAnotherOne(bool newMaze01, bool newMaze02)
+    {
+        if (newMaze01)
+        {
+            mazeRenderer1.initMap(width, height, size, wallPrefab, floorPrefab);
+        }
+        if (newMaze02)
+        {
+            mazeRenderer2.initMap(width, height, size, wallPrefab, floorPrefab);
+        }
     }
 }
