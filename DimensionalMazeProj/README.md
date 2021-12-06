@@ -46,6 +46,18 @@ Remove the wall between the current cell and the chosen cell
 Invoke the routine recursively for a chosen cell
 which is invoked once for any initial cell in the area.
 ```
-The Generation Proccess is located in the following scripts:
+# Scripts :
 ##### [Maze Generator Script.](https://github.com/VictoKuGame/Dimensional/blob/main/DimensionalMazeProj/Assets/Scripts/MazeGenerator.cs)
 ##### [Maze Renderer Script.](https://github.com/VictoKuGame/Dimensional/blob/main/DimensionalMazeProj/Assets/Scripts/MazeRenderer.cs)
+##### [Animation Managmenet Script.](https://github.com/VictoKuGame/Dimensional/blob/main/DimensionalMazeProj/Assets/Scripts/AnimatorManager.cs)
+##### [Camera Managment Script.](https://github.com/VictoKuGame/Dimensional/blob/main/DimensionalMazeProj/Assets/Scripts/CameraManager.cs)
+##### [Loading Scene Script.](https://github.com/VictoKuGame/Dimensional/blob/main/DimensionalMazeProj/Assets/Scripts/GenerationLoadingWait.cs)
+##### [Input Management Script.](https://github.com/VictoKuGame/Dimensional/blob/main/DimensionalMazeProj/Assets/Scripts/InputManager.cs)
+##### [Maze Renderering Main Control Script.](https://github.com/VictoKuGame/Dimensional/blob/main/DimensionalMazeProj/Assets/Scripts/Maze1.cs)
+##### [Player Movement Script.](https://github.com/VictoKuGame/Dimensional/blob/main/DimensionalMazeProj/Assets/Scripts/PlayerLocomotion.cs)
+##### [Player Controlling Script.](https://github.com/VictoKuGame/Dimensional/blob/main/DimensionalMazeProj/Assets/Scripts/PlayerManager.cs)
+
+
+
+
+
