@@ -58,19 +58,19 @@ public class CameraManager : MonoBehaviour
     private void HandleCameraCollisions()
     {
         float targetPosition = defaultPosition;
-        RaycastHit hit;
-        Vector3 direction = cameraTransform.position - cameraPivot.position;
-        direction.Normalize();
-        if (Physics.SphereCast(cameraPivot.transform.position, cameraCollisionRadius, direction, out hit, Mathf.Abs(targetPosition), collisionLayers))
-        {
+        /* RaycastHit hit;
+         Vector3 direction = cameraTransform.position - cameraPivot.position;
+         direction.Normalize();
+         if(Physics.SphereCast(cameraPivot.transform.position, cameraCollisionRadius, direction, out hit, Mathf.Abs(targetPosition), collisionLayers)){
             float distance = Vector3.Distance(cameraPivot.position, hit.point);
-            targetPosition = -distance - cameraCollisionOffSet;
-        }
+            }
+           */
+        targetPosition = (-0.25f - cameraCollisionOffSet);
         if (Mathf.Abs(targetPosition) < minimumCollisionOffSet)
         {
             targetPosition -= minimumCollisionOffSet;
         }
-        cameraVectorPosition.z = Mathf.Lerp(cameraTransform.localPosition.z, targetPosition, 0.2f);
+        cameraVectorPosition.z = Mathf.Lerp(cameraTransform.localPosition.z, targetPosition, 0.5f);
         cameraTransform.localPosition = cameraVectorPosition;
     }
 }
