@@ -15,10 +15,10 @@ public class InputManager : MonoBehaviour
     public float moveAmount;
     public float verticalInput;
     public float horizontalInput;
-    public bool bInput;
+    public bool bInput = false;
     public bool sInput = false;
     public int sInputSwp = 0;
-    public bool mInput;
+    public bool rInput = false;
     private GameObject environmentTypeR1;
     private GameObject environmentTypeQ1;
     public Maze1 maze1;
@@ -26,13 +26,19 @@ public class InputManager : MonoBehaviour
 
 
 
+    public Text visionEmpty;
+    public Image visionEmptyBackground;
 
     [SerializeField] Slider scaleSliderS;
     [SerializeField] Slider scaleSliderP;
     private void Awake()
     {
-
-
+        bInput = false;
+        sInput = false;
+        sInputSwp = 0;
+        rInput = false;
+        visionEmpty.enabled = false;
+        visionEmptyBackground.enabled = false;
         animatorManager = gameObject.GetComponent<AnimatorManager>();
         playerLocomotion = gameObject.GetComponent<PlayerLocomotion>();
         environmentTypeR1 = GameObject.FindGameObjectWithTag("EnvironmentTypeR1");
@@ -52,8 +58,7 @@ public class InputManager : MonoBehaviour
             playerControls.PlayerActions.Shift.performed += i => bInput = true;
             playerControls.PlayerActions.Shift.canceled += i => bInput = false;
             playerControls.PlayerActions.Space.performed += i => sInput = true;
-            playerControls.PlayerActions.Map.performed += i => mInput = true;
-            playerControls.PlayerActions.Map.canceled += i => mInput = false;
+            playerControls.PlayerActions.R.performed += i => rInput = true;
         }
         playerControls.Enable();
     }
@@ -108,6 +113,12 @@ public class InputManager : MonoBehaviour
                 {
                     environmentTypeR1.SetActive(true);
                     environmentTypeQ1.SetActive(true);
+                    visionEmpty.enabled = true;
+                    visionEmptyBackground.enabled = true;
+                    if (rInput)
+                    {
+                        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                    }
                 }
             }
         }
@@ -122,6 +133,13 @@ public class InputManager : MonoBehaviour
                     environmentTypeQ1.SetActive(sInputSwp % 2 != 0);
                     scaleSliderS.value -= 20;
                     sInput = false;
+                }else{
+                     visionEmpty.enabled = true;
+                    visionEmptyBackground.enabled = true;
+                    if (rInput)
+                    {
+                        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                    }
                 }
             }
         }

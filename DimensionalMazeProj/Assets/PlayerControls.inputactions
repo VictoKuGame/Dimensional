@@ -226,7 +226,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Map",
+                    "name": "R",
                     "type": "Button",
                     "id": "b90a78b3-27a1-40e4-a4cb-888f84b097aa",
                     "expectedControlType": "Button",
@@ -261,11 +261,11 @@
                 {
                     "name": "",
                     "id": "9e8092ff-d22e-4dcd-80dd-ad9e74920134",
-                    "path": "<Keyboard>/m",
+                    "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Map",
+                    "action": "R",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -248,7 +248,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Map"",
+                    ""name"": ""R"",
                     ""type"": ""Button"",
                     ""id"": ""b90a78b3-27a1-40e4-a4cb-888f84b097aa"",
                     ""expectedControlType"": ""Button"",
@@ -283,11 +283,11 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""9e8092ff-d22e-4dcd-80dd-ad9e74920134"",
-                    ""path"": ""<Keyboard>/m"",
+                    ""path"": ""<Keyboard>/r"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Map"",
+                    ""action"": ""R"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -304,7 +304,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_PlayerActions = asset.FindActionMap("Player Actions", throwIfNotFound: true);
         m_PlayerActions_Shift = m_PlayerActions.FindAction("Shift", throwIfNotFound: true);
         m_PlayerActions_Space = m_PlayerActions.FindAction("Space", throwIfNotFound: true);
-        m_PlayerActions_Map = m_PlayerActions.FindAction("Map", throwIfNotFound: true);
+        m_PlayerActions_R = m_PlayerActions.FindAction("R", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -407,14 +407,14 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private IPlayerActionsActions m_PlayerActionsActionsCallbackInterface;
     private readonly InputAction m_PlayerActions_Shift;
     private readonly InputAction m_PlayerActions_Space;
-    private readonly InputAction m_PlayerActions_Map;
+    private readonly InputAction m_PlayerActions_R;
     public struct PlayerActionsActions
     {
         private @PlayerControls m_Wrapper;
         public PlayerActionsActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Shift => m_Wrapper.m_PlayerActions_Shift;
         public InputAction @Space => m_Wrapper.m_PlayerActions_Space;
-        public InputAction @Map => m_Wrapper.m_PlayerActions_Map;
+        public InputAction @R => m_Wrapper.m_PlayerActions_R;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -430,9 +430,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Space.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnSpace;
                 @Space.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnSpace;
                 @Space.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnSpace;
-                @Map.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnMap;
-                @Map.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnMap;
-                @Map.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnMap;
+                @R.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnR;
+                @R.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnR;
+                @R.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnR;
             }
             m_Wrapper.m_PlayerActionsActionsCallbackInterface = instance;
             if (instance != null)
@@ -443,9 +443,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Space.started += instance.OnSpace;
                 @Space.performed += instance.OnSpace;
                 @Space.canceled += instance.OnSpace;
-                @Map.started += instance.OnMap;
-                @Map.performed += instance.OnMap;
-                @Map.canceled += instance.OnMap;
+                @R.started += instance.OnR;
+                @R.performed += instance.OnR;
+                @R.canceled += instance.OnR;
             }
         }
     }
@@ -459,6 +459,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     {
         void OnShift(InputAction.CallbackContext context);
         void OnSpace(InputAction.CallbackContext context);
-        void OnMap(InputAction.CallbackContext context);
+        void OnR(InputAction.CallbackContext context);
     }
 }
