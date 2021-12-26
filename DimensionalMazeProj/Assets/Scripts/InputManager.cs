@@ -16,8 +16,9 @@ public class InputManager : MonoBehaviour
     public float verticalInput;
     public float horizontalInput;
     public bool bInput;
-    public bool sInput;
-    public bool pInput;
+    public bool sInput = false;
+    public int sInputSwp = 0;
+    public bool mInput;
     private GameObject environmentTypeR1;
     private GameObject environmentTypeQ1;
     public Maze1 maze1;
@@ -30,11 +31,16 @@ public class InputManager : MonoBehaviour
     [SerializeField] Slider scaleSliderP;
     private void Awake()
     {
+
+
         animatorManager = gameObject.GetComponent<AnimatorManager>();
         playerLocomotion = gameObject.GetComponent<PlayerLocomotion>();
         environmentTypeR1 = GameObject.FindGameObjectWithTag("EnvironmentTypeR1");
         environmentTypeQ1 = GameObject.FindGameObjectWithTag("EnvironmentTypeQ1");
         environmentTypeQ1.SetActive(false);
+
+
+
     }
     private void OnEnable()
     {
@@ -43,12 +49,11 @@ public class InputManager : MonoBehaviour
             playerControls = new PlayerControls();
             playerControls.PlayerMovement.Movement.performed += i => movementInput = i.ReadValue<Vector2>();
             playerControls.PlayerMovement.Camera.performed += i => cameraInput = i.ReadValue<Vector2>();
-            playerControls.PlayerActions.B.performed += i => bInput = true;
-            playerControls.PlayerActions.B.canceled += i => bInput = false;
-            playerControls.PlayerActions.S.performed += i => sInput = true;
-            playerControls.PlayerActions.S.canceled += i => sInput = false;
-            playerControls.PlayerActions.P.performed += i => pInput = true;
-            playerControls.PlayerActions.P.canceled += i => pInput = false;
+            playerControls.PlayerActions.Shift.performed += i => bInput = true;
+            playerControls.PlayerActions.Shift.canceled += i => bInput = false;
+            playerControls.PlayerActions.Space.performed += i => sInput = true;
+            playerControls.PlayerActions.Map.performed += i => mInput = true;
+            playerControls.PlayerActions.Map.canceled += i => mInput = false;
         }
         playerControls.Enable();
     }
@@ -74,10 +79,9 @@ public class InputManager : MonoBehaviour
     private void HandleSprintingInput()
     {
         playerLocomotion.isSprinting = (bInput && moveAmount > 0.5f);
-        if (bInput && !sInput && !pInput)
+        if (bInput)
         {
-            scaleSliderS.value += 1;
-            scaleSliderP.value += 1;
+            scaleSliderP.value -= 1;
         }
     }
     private void HandleVisionInput()
@@ -86,48 +90,65 @@ public class InputManager : MonoBehaviour
         string sceneName = currentScene.name;
         if (sceneName == "SampleScene")
         {
-            if (sInput && scaleSliderS.value > 0)
+            if (sInput)
             {
-                environmentTypeR1.SetActive(false);
-                environmentTypeQ1.SetActive(true);
-                maze1.generateAnotherOne(true, false);
-                scaleSliderS.value -= 1;
-            }
-            else if (pInput && scaleSliderP.value > 0)
-            {
-                environmentTypeR1.SetActive(true);
-                environmentTypeQ1.SetActive(false);
-                maze1.generateAnotherOne(false, true);
-                scaleSliderP.value -= 1;
-            }
-            else
-            {
-                environmentTypeR1.SetActive(true);
-                environmentTypeQ1.SetActive(true);
+                sInputSwp++;
+                if (sInputSwp <= 2)
+                {
+                    maze1.generateAnotherOne(sInputSwp % 2 == 0, sInputSwp % 2 != 0);
+                }
+                if (scaleSliderS.value > 20)
+                {
+                    environmentTypeR1.SetActive(sInputSwp % 2 == 0);
+                    environmentTypeQ1.SetActive(sInputSwp % 2 != 0);
+                    scaleSliderS.value -= 20;
+                    sInput = false;
+                }
+                else
+                {
+                    environmentTypeR1.SetActive(true);
+                    environmentTypeQ1.SetActive(true);
+                }
             }
         }
         else
         {
-            if (sInput && scaleSliderS.value > 0)
+            if (sInput)
             {
-                environmentTypeR1.SetActive(false);
-                environmentTypeQ1.SetActive(true);
-                scaleSliderS.value -= 1;
-            }
-            else if (pInput && scaleSliderP.value > 0)
-            {
-                environmentTypeR1.SetActive(false);
-                environmentTypeQ1.SetActive(true);
-                scaleSliderP.value -= 1;
-            }
-            else
-            {
-                environmentTypeR1.SetActive(true);
-                environmentTypeQ1.SetActive(false);
+                sInputSwp++;
+                if (scaleSliderS.value > 20)
+                {
+                    environmentTypeR1.SetActive(sInputSwp % 2 == 0);
+                    environmentTypeQ1.SetActive(sInputSwp % 2 != 0);
+                    scaleSliderS.value -= 20;
+                    sInput = false;
+                }
             }
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

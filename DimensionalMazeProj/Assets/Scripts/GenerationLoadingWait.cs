@@ -5,23 +5,22 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class GenerationLoadingWait : MonoBehaviour
 {
+    public int seconds;
+    public bool showLoader;
     void Start()
     {
         StartCoroutine(Loading());
-        
     }
     IEnumerator Loading()
     {
-        yield return new WaitForSeconds(5);
-        SceneManager.LoadScene("SampleScene");
+        yield return new WaitForSeconds(seconds);
+        if (showLoader)
+        {
+            SceneManager.LoadScene("SampleScene");
+        }
 
     }
 }
-
-
-
-
-
 
 
 

@@ -32,10 +32,10 @@ public class Maze1 : MonoBehaviour
                 floor.transform.SetParent(transform);
             }
         }
-        Instantiate(light, transform.position + new Vector3(-(width / 2), 5, -(height / 2)), Quaternion.Euler(22.5f,45,0)).transform.SetParent(transform);
-        Instantiate(light, transform.position + new Vector3((width / 2), 5, (height / 2)), Quaternion.Euler(22.5f,225,0)).transform.SetParent(transform);
-        Instantiate(light, transform.position + new Vector3(-(width / 2), 5, (height / 2)), Quaternion.Euler(22.5f,135,0)).transform.SetParent(transform);
-        Instantiate(light, transform.position + new Vector3((width / 2), 5, -(height / 2)), Quaternion.Euler(22.5f,-45,0)).transform.SetParent(transform);
+        Instantiate(light, transform.position + new Vector3(-(width / 2), 5, -(height / 2)), Quaternion.Euler(22.5f, 45, 0)).transform.SetParent(transform);
+        Instantiate(light, transform.position + new Vector3((width / 2), 5, (height / 2)), Quaternion.Euler(22.5f, 225, 0)).transform.SetParent(transform);
+        Instantiate(light, transform.position + new Vector3(-(width / 2), 5, (height / 2)), Quaternion.Euler(22.5f, 135, 0)).transform.SetParent(transform);
+        Instantiate(light, transform.position + new Vector3((width / 2), 5, -(height / 2)), Quaternion.Euler(22.5f, -45, 0)).transform.SetParent(transform);
 
         generateAnotherOne(true, true);
     }
@@ -51,3 +51,8 @@ public class Maze1 : MonoBehaviour
         }
     }
 }
+
+
+
+
+

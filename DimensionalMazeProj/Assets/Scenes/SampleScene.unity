@@ -493,9 +493,9 @@ RectTransform:
   m_Father: {fileID: 1682607313}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 796, y: 285}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -87, y: -100}
   m_SizeDelta: {x: 873, y: 377}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &215111759
@@ -1857,9 +1857,9 @@ RectTransform:
   m_Father: {fileID: 1682607313}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 795, y: 328}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -89, y: -47}
   m_SizeDelta: {x: 873, y: 377}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1455837252
@@ -1907,9 +1907,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 173577281}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1000
+  m_MaxValue: 100
   m_WholeNumbers: 1
-  m_Value: 1000
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2214,8 +2214,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34e3e4891bd97894ab197fa83f5c48d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 15
-  height: 15
+  width: 50
+  height: 50
   size: 1
   wallPrefab: {fileID: 3495958046185666090, guid: 304db1f134ff12045a76df891c84710a, type: 3}
   floorPrefab: {fileID: 4000013041734426, guid: d803e729730d97a4e89edf13b602b3f4, type: 3}
@@ -2295,7 +2295,8 @@ MonoBehaviour:
   horizontalInput: 0
   bInput: 0
   sInput: 0
-  pInput: 0
+  sInputSwp: 0
+  mInput: 0
   maze1: {fileID: 1656839641}
   scaleSliderS: {fileID: 1455837252}
   scaleSliderP: {fileID: 215111759}

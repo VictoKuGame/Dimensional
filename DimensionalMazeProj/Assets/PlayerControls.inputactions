@@ -208,7 +208,7 @@
             "id": "2f263ccf-2e36-424a-9b51-4bb7cbaaa7f2",
             "actions": [
                 {
-                    "name": "B",
+                    "name": "Shift",
                     "type": "Button",
                     "id": "c9d25dec-3f66-4dab-bee5-cad0d844e3b7",
                     "expectedControlType": "Button",
@@ -217,7 +217,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "S",
+                    "name": "Space",
                     "type": "Button",
                     "id": "4147f956-a0ea-4912-9336-c80995c29a0c",
                     "expectedControlType": "Button",
@@ -226,7 +226,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "P",
+                    "name": "Map",
                     "type": "Button",
                     "id": "b90a78b3-27a1-40e4-a4cb-888f84b097aa",
                     "expectedControlType": "Button",
@@ -243,18 +243,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "B",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "cb72d947-048b-458a-9260-69f724ebf643",
-                    "path": "<Gamepad>/buttonEast",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "B",
+                    "action": "Shift",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -265,18 +254,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "S",
+                    "action": "Space",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "9e8092ff-d22e-4dcd-80dd-ad9e74920134",
-                    "path": "<Keyboard>/ctrl",
+                    "path": "<Keyboard>/m",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "P",
+                    "action": "Map",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -230,7 +230,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
             ""id"": ""2f263ccf-2e36-424a-9b51-4bb7cbaaa7f2"",
             ""actions"": [
                 {
-                    ""name"": ""B"",
+                    ""name"": ""Shift"",
                     ""type"": ""Button"",
                     ""id"": ""c9d25dec-3f66-4dab-bee5-cad0d844e3b7"",
                     ""expectedControlType"": ""Button"",
@@ -239,7 +239,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""S"",
+                    ""name"": ""Space"",
                     ""type"": ""Button"",
                     ""id"": ""4147f956-a0ea-4912-9336-c80995c29a0c"",
                     ""expectedControlType"": ""Button"",
@@ -248,7 +248,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""P"",
+                    ""name"": ""Map"",
                     ""type"": ""Button"",
                     ""id"": ""b90a78b3-27a1-40e4-a4cb-888f84b097aa"",
                     ""expectedControlType"": ""Button"",
@@ -265,18 +265,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""B"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""cb72d947-048b-458a-9260-69f724ebf643"",
-                    ""path"": ""<Gamepad>/buttonEast"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""B"",
+                    ""action"": ""Shift"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -287,18 +276,18 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""S"",
+                    ""action"": ""Space"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
                     ""id"": ""9e8092ff-d22e-4dcd-80dd-ad9e74920134"",
-                    ""path"": ""<Keyboard>/ctrl"",
+                    ""path"": ""<Keyboard>/m"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""P"",
+                    ""action"": ""Map"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -313,9 +302,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_PlayerMovement_Camera = m_PlayerMovement.FindAction("Camera", throwIfNotFound: true);
         // Player Actions
         m_PlayerActions = asset.FindActionMap("Player Actions", throwIfNotFound: true);
-        m_PlayerActions_B = m_PlayerActions.FindAction("B", throwIfNotFound: true);
-        m_PlayerActions_S = m_PlayerActions.FindAction("S", throwIfNotFound: true);
-        m_PlayerActions_P = m_PlayerActions.FindAction("P", throwIfNotFound: true);
+        m_PlayerActions_Shift = m_PlayerActions.FindAction("Shift", throwIfNotFound: true);
+        m_PlayerActions_Space = m_PlayerActions.FindAction("Space", throwIfNotFound: true);
+        m_PlayerActions_Map = m_PlayerActions.FindAction("Map", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -416,16 +405,16 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     // Player Actions
     private readonly InputActionMap m_PlayerActions;
     private IPlayerActionsActions m_PlayerActionsActionsCallbackInterface;
-    private readonly InputAction m_PlayerActions_B;
-    private readonly InputAction m_PlayerActions_S;
-    private readonly InputAction m_PlayerActions_P;
+    private readonly InputAction m_PlayerActions_Shift;
+    private readonly InputAction m_PlayerActions_Space;
+    private readonly InputAction m_PlayerActions_Map;
     public struct PlayerActionsActions
     {
         private @PlayerControls m_Wrapper;
         public PlayerActionsActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @B => m_Wrapper.m_PlayerActions_B;
-        public InputAction @S => m_Wrapper.m_PlayerActions_S;
-        public InputAction @P => m_Wrapper.m_PlayerActions_P;
+        public InputAction @Shift => m_Wrapper.m_PlayerActions_Shift;
+        public InputAction @Space => m_Wrapper.m_PlayerActions_Space;
+        public InputAction @Map => m_Wrapper.m_PlayerActions_Map;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -435,28 +424,28 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_PlayerActionsActionsCallbackInterface != null)
             {
-                @B.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnB;
-                @B.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnB;
-                @B.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnB;
-                @S.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnS;
-                @S.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnS;
-                @S.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnS;
-                @P.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnP;
-                @P.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnP;
-                @P.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnP;
+                @Shift.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnShift;
+                @Shift.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnShift;
+                @Shift.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnShift;
+                @Space.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnSpace;
+                @Space.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnSpace;
+                @Space.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnSpace;
+                @Map.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnMap;
+                @Map.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnMap;
+                @Map.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnMap;
             }
             m_Wrapper.m_PlayerActionsActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @B.started += instance.OnB;
-                @B.performed += instance.OnB;
-                @B.canceled += instance.OnB;
-                @S.started += instance.OnS;
-                @S.performed += instance.OnS;
-                @S.canceled += instance.OnS;
-                @P.started += instance.OnP;
-                @P.performed += instance.OnP;
-                @P.canceled += instance.OnP;
+                @Shift.started += instance.OnShift;
+                @Shift.performed += instance.OnShift;
+                @Shift.canceled += instance.OnShift;
+                @Space.started += instance.OnSpace;
+                @Space.performed += instance.OnSpace;
+                @Space.canceled += instance.OnSpace;
+                @Map.started += instance.OnMap;
+                @Map.performed += instance.OnMap;
+                @Map.canceled += instance.OnMap;
             }
         }
     }
@@ -468,8 +457,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     }
     public interface IPlayerActionsActions
     {
-        void OnB(InputAction.CallbackContext context);
-        void OnS(InputAction.CallbackContext context);
-        void OnP(InputAction.CallbackContext context);
+        void OnShift(InputAction.CallbackContext context);
+        void OnSpace(InputAction.CallbackContext context);
+        void OnMap(InputAction.CallbackContext context);
     }
 }
