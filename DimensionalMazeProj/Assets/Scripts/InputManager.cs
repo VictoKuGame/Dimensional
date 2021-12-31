@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+
+
+
+using UnityEngine.AI;
 public class InputManager : MonoBehaviour
 {
     PlayerLocomotion playerLocomotion;
@@ -26,6 +30,13 @@ public class InputManager : MonoBehaviour
 
 
 
+
+
+
+
+
+
+    public NavMeshSurface surface;
     public Text visionEmpty;
     public Image visionEmptyBackground;
 
@@ -76,16 +87,15 @@ public class InputManager : MonoBehaviour
     {
         verticalInput = movementInput.y;
         horizontalInput = movementInput.x;
-
-        moveAmount = Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput));
-        animatorManager.UpdateAnimatorValues(horizontalInput,  Mathf.Abs(verticalInput), playerLocomotion.isSprinting);
-                cameraInputX = cameraInput.x;
+        cameraInputX = cameraInput.x;
         cameraInputY = cameraInput.y;
+        moveAmount = Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput));
+        animatorManager.UpdateAnimatorValues(0, moveAmount, playerLocomotion.isSprinting);
     }
     private void HandleSprintingInput()
     {
-        playerLocomotion.isSprinting = (bInput && moveAmount > 0.5f&&scaleSliderP.value>0);
-        if (bInput&&scaleSliderP.value>0)
+        playerLocomotion.isSprinting = (bInput && moveAmount > 0.5f);
+        if (bInput)
         {
             scaleSliderP.value -= 1;
         }
@@ -99,14 +109,16 @@ public class InputManager : MonoBehaviour
             if (sInput)
             {
                 sInputSwp++;
-                if (sInputSwp <= 2)
+                /*if (sInputSwp == 1)
                 {
-                    maze1.generateAnotherOne(sInputSwp % 2 == 0, sInputSwp % 2 != 0);
-                }
+                    maze1.generateAnotherOne(false,true);
+                }*/
                 if (scaleSliderS.value > 20)
                 {
+
                     environmentTypeR1.SetActive(sInputSwp % 2 == 0);
                     environmentTypeQ1.SetActive(sInputSwp % 2 != 0);
+                    surface.BuildNavMesh();
                     scaleSliderS.value -= 20;
                     sInput = false;
                 }
@@ -114,6 +126,7 @@ public class InputManager : MonoBehaviour
                 {
                     environmentTypeR1.SetActive(true);
                     environmentTypeQ1.SetActive(true);
+                    surface.BuildNavMesh();
                     visionEmpty.enabled = true;
                     visionEmptyBackground.enabled = true;
                     if (rInput)
@@ -134,8 +147,10 @@ public class InputManager : MonoBehaviour
                     environmentTypeQ1.SetActive(sInputSwp % 2 != 0);
                     scaleSliderS.value -= 20;
                     sInput = false;
-                }else{
-                     visionEmpty.enabled = true;
+                }
+                else
+                {
+                    visionEmpty.enabled = true;
                     visionEmptyBackground.enabled = true;
                     if (rInput)
                     {
@@ -146,6 +161,7 @@ public class InputManager : MonoBehaviour
         }
     }
 }
+
 
 
 
