@@ -76,15 +76,16 @@ public class InputManager : MonoBehaviour
     {
         verticalInput = movementInput.y;
         horizontalInput = movementInput.x;
-        cameraInputX = cameraInput.x;
-        cameraInputY = cameraInput.y;
+
         moveAmount = Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput));
-        animatorManager.UpdateAnimatorValues(0, moveAmount, playerLocomotion.isSprinting);
+        animatorManager.UpdateAnimatorValues(horizontalInput,  Mathf.Abs(verticalInput), playerLocomotion.isSprinting);
+                cameraInputX = cameraInput.x;
+        cameraInputY = cameraInput.y;
     }
     private void HandleSprintingInput()
     {
-        playerLocomotion.isSprinting = (bInput && moveAmount > 0.5f);
-        if (bInput)
+        playerLocomotion.isSprinting = (bInput && moveAmount > 0.5f&&scaleSliderP.value>0);
+        if (bInput&&scaleSliderP.value>0)
         {
             scaleSliderP.value -= 1;
         }

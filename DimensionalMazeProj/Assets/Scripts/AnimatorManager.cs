@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -60,10 +61,12 @@ public class AnimatorManager : MonoBehaviour
         if (isSprinting)
         {
 
-            snappedHorizontal = horizontalMovement;
+            snappedHorizontal = (horizontalMovement != 0) ? 2 * horizontalMovement / Mathf.Abs(horizontalMovement) : 0;
             snappedVertical = 2;
         }
         animator.SetFloat(horizontal, snappedHorizontal, 0.1f, Time.deltaTime);
         animator.SetFloat(vertical, snappedVertical, 0.1f, Time.deltaTime);
+        horizontalMovement = 0;
+        verticalMovement = 0;
     }
 }
