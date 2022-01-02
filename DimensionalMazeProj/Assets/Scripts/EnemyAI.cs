@@ -16,13 +16,13 @@ public class EnemyAI : MonoBehaviour
     public float walkPointRange;
     //*Attacking.
     public float timeBetweenAttacks;
-    bool alreadyAttacked;
+    bool alreadyAttacked=false;
     //*States.
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
     private void Awake()
     {
-        //*player = GameObject.Find("PlayerObj").transform;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         agent = GetComponent<NavMeshAgent>();
     }
     private void Update()
@@ -44,7 +44,7 @@ public class EnemyAI : MonoBehaviour
         if (playerInAttackRange && playerInSightRange)
         {
             AttackPlayer();
-            enemyAnimator.UpdateAnimatorValues(attack);
+
         }
     }
     private void Patroling()
@@ -89,8 +89,8 @@ public class EnemyAI : MonoBehaviour
 
         transform.LookAt(player);
 
-       /* if (!alreadyAttacked)
-        {*/
+        if (!alreadyAttacked)
+        {
             /*Attack code here.
             .
             .
@@ -98,9 +98,14 @@ public class EnemyAI : MonoBehaviour
             .
             */
 
+
+
+
             alreadyAttacked = true;
-            //*Invoke(nameof(ResetAttack), timeBetweenAttacks);
-        /* }*/
+            enemyAnimator.UpdateAnimatorValues(attack);
+
+            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+        }
     }
     private void ResetAttack()
     {
