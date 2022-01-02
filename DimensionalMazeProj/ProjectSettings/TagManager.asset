@@ -6,6 +6,7 @@ TagManager:
   tags:
   - EnvironmentTypeR1
   - EnvironmentTypeQ1
+  - Fireball1
   layers:
   - Default
   - TransparentFX

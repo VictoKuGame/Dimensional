@@ -19,6 +19,8 @@ public class InputManager : MonoBehaviour
     public bool sInput = false;
     public int sInputSwp = 0;
     public bool rInput = false;
+    public bool aim = false;
+    public bool shoot = false;
     private GameObject environmentTypeR1;
     private GameObject environmentTypeQ1;
     public Maze1 maze1;
@@ -27,6 +29,8 @@ public class InputManager : MonoBehaviour
     public Image visionEmptyBackground;
     [SerializeField] Slider scaleSliderS;
     [SerializeField] Slider scaleSliderP;
+    public GameObject fireball;
+    public Transform spawnFireball;
     private void Awake()
     {
         bInput = false;
@@ -52,6 +56,9 @@ public class InputManager : MonoBehaviour
             playerControls.PlayerActions.Shift.canceled += i => bInput = false;
             playerControls.PlayerActions.Space.performed += i => sInput = true;
             playerControls.PlayerActions.R.performed += i => rInput = true;
+            playerControls.PlayerActions.Aim.performed += i => aim = true;
+            playerControls.PlayerActions.Aim.canceled += i => aim = false;
+            playerControls.PlayerActions.Shoot.performed += i => shoot = true;
         }
         playerControls.Enable();
     }
@@ -64,6 +71,7 @@ public class InputManager : MonoBehaviour
         HandleMovementInput();
         HandleSprintingInput();
         HandleVisionInput();
+        HandleShootingInput();
     }
     private void HandleMovementInput()
     {
@@ -139,6 +147,20 @@ public class InputManager : MonoBehaviour
                         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                     }
                 }
+            }
+        }
+    }
+    private void HandleShootingInput()
+    {
+        if (aim)
+        {
+            /*Animation*/
+            if (shoot)
+            {
+                shoot = false;
+
+
+                Instantiate(fireball, spawnFireball.position, transform.rotation*Quaternion.Euler(0, 0, 0));
             }
         }
     }
