@@ -3,10 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
-
-
-using UnityEngine.AI;
 public class InputManager : MonoBehaviour
 {
     PlayerLocomotion playerLocomotion;
@@ -26,20 +22,9 @@ public class InputManager : MonoBehaviour
     private GameObject environmentTypeR1;
     private GameObject environmentTypeQ1;
     public Maze1 maze1;
-
-
-
-
-
-
-
-
-
-
-    public NavMeshSurface surface;
+    //*public NavMeshSurface surface;
     public Text visionEmpty;
     public Image visionEmptyBackground;
-
     [SerializeField] Slider scaleSliderS;
     [SerializeField] Slider scaleSliderP;
     private void Awake()
@@ -55,9 +40,6 @@ public class InputManager : MonoBehaviour
         environmentTypeR1 = GameObject.FindGameObjectWithTag("EnvironmentTypeR1");
         environmentTypeQ1 = GameObject.FindGameObjectWithTag("EnvironmentTypeQ1");
         environmentTypeQ1.SetActive(false);
-
-
-
     }
     private void OnEnable()
     {
@@ -118,7 +100,7 @@ public class InputManager : MonoBehaviour
 
                     environmentTypeR1.SetActive(sInputSwp % 2 == 0);
                     environmentTypeQ1.SetActive(sInputSwp % 2 != 0);
-                    surface.BuildNavMesh();
+                    //*surface.BuildNavMesh();
                     scaleSliderS.value -= 20;
                     sInput = false;
                 }
@@ -126,7 +108,7 @@ public class InputManager : MonoBehaviour
                 {
                     environmentTypeR1.SetActive(true);
                     environmentTypeQ1.SetActive(true);
-                    surface.BuildNavMesh();
+                    //*surface.BuildNavMesh();
                     visionEmpty.enabled = true;
                     visionEmptyBackground.enabled = true;
                     if (rInput)
@@ -161,6 +143,9 @@ public class InputManager : MonoBehaviour
         }
     }
 }
+
+
+
 
 
 

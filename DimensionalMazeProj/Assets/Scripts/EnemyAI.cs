@@ -2,6 +2,10 @@ using UnityEngine;
 using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
+    private float idle = 1f;
+    private float run = 5f;
+    private float attack = 9f;
+    public EnemyAnimator enemyAnimator;
     public NavMeshAgent agent;
     public Transform player;
     public LayerMask whatIsGround, whatIsPlayer;
@@ -30,21 +34,25 @@ public class EnemyAI : MonoBehaviour
         if (!playerInSightRange && !playerInAttackRange)
         {
             Patroling();
+            enemyAnimator.UpdateAnimatorValues(idle);
         }
-        if (playerInSightRange /*&& !playerInAttackRange*/)
+        if (playerInSightRange && !playerInAttackRange)
         {
             ChasePlayer();
+            enemyAnimator.UpdateAnimatorValues(run);
         }
-        /*if (playerInAttackRange && playerInSightRange)
+        if (playerInAttackRange && playerInSightRange)
         {
-        AttackPlayer();
-        }*/
+            AttackPlayer();
+            enemyAnimator.UpdateAnimatorValues(attack);
+        }
     }
     private void Patroling()
     {
         if (!walkPointSet)
         {
             SearchWalkPoint();
+
         }
 
         if (walkPointSet)
@@ -81,8 +89,8 @@ public class EnemyAI : MonoBehaviour
 
         transform.LookAt(player);
 
-        if (!alreadyAttacked)
-        {
+       /* if (!alreadyAttacked)
+        {*/
             /*Attack code here.
             .
             .
@@ -91,8 +99,8 @@ public class EnemyAI : MonoBehaviour
             */
 
             alreadyAttacked = true;
-            Invoke(nameof(ResetAttack), timeBetweenAttacks);
-        }
+            //*Invoke(nameof(ResetAttack), timeBetweenAttacks);
+        /* }*/
     }
     private void ResetAttack()
     {

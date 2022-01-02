@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.AI;
 public class Maze1 : MonoBehaviour
 {
     [SerializeField]
@@ -22,26 +22,31 @@ public class Maze1 : MonoBehaviour
     public Transform light;
 
 
+
+
+
+
+    public NavMeshSurface surface;
     // Start is called before the first frame update
     void Start()
     {
 
 
-        /*for (int a = 0; a <= width; a++)
+        for (int a = 0; a <= width; a++)
         {
             for (int b = 0; b <= height; b++)
             {
                 var floor = Instantiate(floorPrefab, transform.position + new Vector3((float)a - (width / 2), 0, (float)b - (height / 2)), transform.rotation);
                 floor.transform.SetParent(transform);
             }
-        }*/
+        }
         generateAnotherOne(true, false);
         Instantiate(light, transform.position + new Vector3(-(width / 2), 5, -(height / 2)), Quaternion.Euler(22.5f, 45, 0)).transform.SetParent(transform);
         Instantiate(light, transform.position + new Vector3((width / 2), 5, (height / 2)), Quaternion.Euler(22.5f, 225, 0)).transform.SetParent(transform);
         Instantiate(light, transform.position + new Vector3(-(width / 2), 5, (height / 2)), Quaternion.Euler(22.5f, 135, 0)).transform.SetParent(transform);
         Instantiate(light, transform.position + new Vector3((width / 2), 5, -(height / 2)), Quaternion.Euler(22.5f, -45, 0)).transform.SetParent(transform);
         generateAnotherOne(false, true);
-
+        surface.BuildNavMesh();
     }
     public void generateAnotherOne(bool newMaze01, bool newMaze02)
     {
