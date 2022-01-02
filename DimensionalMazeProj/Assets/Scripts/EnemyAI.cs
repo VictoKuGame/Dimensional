@@ -16,10 +16,15 @@ public class EnemyAI : MonoBehaviour
     public float walkPointRange;
     //*Attacking.
     public float timeBetweenAttacks;
-    bool alreadyAttacked=false;
+    bool alreadyAttacked = false;
     //*States.
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
+
+
+
+
+    public Transform boom1;
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -129,6 +134,19 @@ public class EnemyAI : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, attackRange);
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, sightRange);
+    }
+
+
+
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.CompareTag("Fireball1"))
+        {
+            
+            Instantiate(boom1, transform.position, transform.rotation);
+            Destroy(gameObject);
+        }
     }
 }
 

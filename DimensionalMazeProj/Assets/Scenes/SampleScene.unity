@@ -922,8 +922,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 1305602828}
   enemy: {fileID: 6094887939488354960, guid: 263032d566189ad78a991c532fca5e41, type: 3}
-  time: 1
-  repeatRate: 1
+  numOfEnemies: 0
 --- !u!1 &643752039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1038,8 +1037,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 3681884866230006047}
   enemy: {fileID: 5492646624332140548, guid: 2780e50bb5d40d9fc9c16428c4adc4f7, type: 3}
-  time: 1
-  repeatRate: 1
+  numOfEnemies: 0
 --- !u!1 &870882097
 GameObject:
   m_ObjectHideFlags: 0
@@ -2715,6 +2713,7 @@ MonoBehaviour:
   scaleSliderP: {fileID: 215111759}
   fireball: {fileID: 3609546468175905773, guid: db295679ef4f6f1fd9d91fe5a0c65b07, type: 3}
   spawnFireball: {fileID: 1407102806}
+  wasAiming: 0
 --- !u!95 &1675763882
 Animator:
   serializedVersion: 3

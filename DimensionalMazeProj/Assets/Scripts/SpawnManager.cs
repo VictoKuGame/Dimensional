@@ -6,24 +6,22 @@ public class SpawnManager : MonoBehaviour
 {
     [SerializeField] Transform spawnPoint;
     [SerializeField] GameObject enemy;
-    [SerializeField] float time;
-    [SerializeField] float repeatRate;
-    private int numOfEnemies;
+    public int numOfEnemies;
     void Start()
     {
         numOfEnemies = 0;
     }
     void Update()
     {
-        if (numOfEnemies < 5)
+        if (numOfEnemies < 3)
         {
-            Invoke("SpawnEnemies", 5f);
-            numOfEnemies++;
+           Spawn1();
         }
     }
 
-    void SpawnEnemies()
-    {
-        Instantiate(enemy, spawnPoint.position, Quaternion.identity).transform.SetParent(transform);
+    public void Spawn1(){
+         //*Invoke("SpawnEnemies", 5f);
+            Instantiate(enemy, spawnPoint.position, Quaternion.identity).transform.SetParent(transform);
+            numOfEnemies++;
     }
 }

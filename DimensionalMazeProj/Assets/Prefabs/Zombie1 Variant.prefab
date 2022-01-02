@@ -29,7 +29,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 578376449398627443, guid: 6dc4cf4496348884d8ee27743ae38562, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.87098414
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 578376449398627443, guid: 6dc4cf4496348884d8ee27743ae38562, type: 3}
       propertyPath: m_LocalPosition.z
@@ -88,7 +88,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 1
-  m_Constraints: 84
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!136 &1418395482
 CapsuleCollider:
@@ -101,9 +101,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.29
-  m_Height: 1.9060085
+  m_Height: 1.9982854
   m_Direction: 1
-  m_Center: {x: 0, y: 0.95, z: 0}
+  m_Center: {x: 0, y: 0.9343137, z: 0}
 --- !u!195 &1418395480
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -167,3 +167,6 @@ MonoBehaviour:
   attackRange: 0.1
   playerInSightRange: 0
   playerInAttackRange: 0
+  spawnPoint: {fileID: 0}
+  enemy: {fileID: 5492646624332140548}
+  boom1: {fileID: 2179098342187590467, guid: 94c16fa3864ec4508b929108eff1ee13, type: 3}
