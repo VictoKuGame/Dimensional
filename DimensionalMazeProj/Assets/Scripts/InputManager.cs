@@ -31,6 +31,7 @@ public class InputManager : MonoBehaviour
     [SerializeField] Slider scaleSliderP;
     public GameObject fireball;
     public Transform spawnFireball;
+    public bool wasAiming = false;
     private void Awake()
     {
         bInput = false;
@@ -58,7 +59,8 @@ public class InputManager : MonoBehaviour
             playerControls.PlayerActions.R.performed += i => rInput = true;
             playerControls.PlayerActions.Aim.performed += i => aim = true;
             playerControls.PlayerActions.Aim.canceled += i => aim = false;
-            playerControls.PlayerActions.Shoot.performed += i => shoot = true;
+            playerControls.PlayerActions.Shoot.performed += i => shoot = (aim) ? true : false;
+            playerControls.PlayerActions.Shoot.canceled += i => shoot = false;
         }
         playerControls.Enable();
     }
@@ -80,8 +82,30 @@ public class InputManager : MonoBehaviour
         cameraInputX = cameraInput.x;
         cameraInputY = cameraInput.y;
         moveAmount = Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput));
+        if (aim)
+        {
+            wasAiming = true;
+            animatorManager.UpdateAnimatorShoot(7f);
+            /*Animation*/
+            if (shoot && scaleSliderP.value > 0)
+            {
+
+
+                Instantiate(fireball, spawnFireball.position,transform.rotation);
+                scaleSliderP.value -= 1;
+                //*animatorManager.UpdateAnimatorShoot(0f);
+                shoot = false;
+            }
+        }
+        else
+        {
+            animatorManager.UpdateAnimatorShoot(0f);
+            wasAiming = false;
+        }
+
         animatorManager.UpdateAnimatorValues(0, moveAmount, playerLocomotion.isSprinting);
     }
+
     private void HandleSprintingInput()
     {
         playerLocomotion.isSprinting = (bInput && moveAmount > 0.5f);
@@ -152,17 +176,8 @@ public class InputManager : MonoBehaviour
     }
     private void HandleShootingInput()
     {
-        if (aim)
-        {
-            /*Animation*/
-            if (shoot)
-            {
-                shoot = false;
 
 
-                Instantiate(fireball, spawnFireball.position, transform.rotation);
-            }
-        }
     }
 }
 

@@ -6,14 +6,11 @@ using System;
 [Flags]
 public enum WallState
 {
-    // 0000 -> NO WALLS
-    // 1111 -> LEFT,RIGHT,UP,DOWN
-    LEFT = 1, // 0001
-    RIGHT = 2, // 0010
-    UP = 4, // 0100
-    DOWN = 8, // 1000
-
-    VISITED = 128, // 1000 0000
+    LEFT = 1,
+    RIGHT = 2,
+    UP = 4,
+    DOWN = 8,
+    VISITED = 128,
 }
 
 public struct Position
@@ -108,6 +105,7 @@ public static class MazeGenerator
         return ApplyRecursiveBacktracker(maze, width, height);
     }
 }
+
 
 
 
