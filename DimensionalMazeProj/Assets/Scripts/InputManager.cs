@@ -160,7 +160,7 @@ public class InputManager : MonoBehaviour
                 shoot = false;
 
 
-                Instantiate(fireball, spawnFireball.position, transform.rotation*Quaternion.Euler(0, 0, 0));
+                Instantiate(fireball, spawnFireball.position, transform.rotation);
             }
         }
     }
