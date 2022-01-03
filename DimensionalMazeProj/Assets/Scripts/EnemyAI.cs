@@ -57,9 +57,7 @@ public class EnemyAI : MonoBehaviour
         if (!walkPointSet)
         {
             SearchWalkPoint();
-
         }
-
         if (walkPointSet)
         {
             agent.SetDestination(walkPoint);

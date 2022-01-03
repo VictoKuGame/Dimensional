@@ -170,3 +170,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   effect: {fileID: 5382021483608794047, guid: 368e0096644342bbeb896bfd058ce59b, type: 3}
+  flyEffect: {fileID: 5382021483608794047, guid: 8d9356a2dd3cf3cc9bc5d06b4c8c0ebe, type: 3}

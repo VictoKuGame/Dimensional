@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -32,6 +32,7 @@ public class InputManager : MonoBehaviour
     public GameObject fireball;
     public Transform spawnFireball;
     public bool wasAiming = false;
+    public Transform visionWavePulse;
     private void Awake()
     {
         bInput = false;
@@ -81,11 +82,12 @@ public class InputManager : MonoBehaviour
         cameraInputY = cameraInput.y;
         if (aim)
         {
+            transform.LookAt(Camera.main.transform);
+             transform.rotation*=Quaternion.Euler(-90,180,0);
             verticalInput = 0;
             horizontalInput = 0;
             wasAiming = true;
             animatorManager.UpdateAnimatorShoot(7f);
-            /*Animation*/
             if (shoot && scaleSliderP.value > 0)
             {
                 Instantiate(fireball, spawnFireball.position, transform.rotation);
@@ -121,14 +123,10 @@ public class InputManager : MonoBehaviour
         {
             if (sInput)
             {
-
                 sInputSwp++;
-                /*if (sInputSwp == 1)
-                {
-                    maze1.generateAnotherOne(false,true);
-                }*/
                 if (scaleSliderS.value >= 20)
                 {
+                    Instantiate(visionWavePulse, transform.position, transform.rotation).transform.SetParent(transform);
                     animatorManager.UpdateAnimatorVision();
                     //*Vision();
                     environmentTypeR1.SetActive(sInputSwp % 2 == 0);
@@ -141,7 +139,6 @@ public class InputManager : MonoBehaviour
                 {
                     environmentTypeR1.SetActive(true);
                     environmentTypeQ1.SetActive(true);
-                    //*surface.BuildNavMesh();
                     visionEmpty.enabled = true;
                     visionEmptyBackground.enabled = true;
                     if (rInput)

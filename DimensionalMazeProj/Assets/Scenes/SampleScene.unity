@@ -718,7 +718,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 703
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 70649db2198eb924d83d0f741e71dd25, type: 2}
   m_TargetDisplay: 0
@@ -1214,15 +1214,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1148334756428564184, guid: f687084e62cca714cb11559c68221ce7, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1148334756428564184, guid: f687084e62cca714cb11559c68221ce7, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1148334756428564184, guid: f687084e62cca714cb11559c68221ce7, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1148334756428564184, guid: f687084e62cca714cb11559c68221ce7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2716,6 +2716,7 @@ MonoBehaviour:
   fireball: {fileID: 3609546468175905773, guid: db295679ef4f6f1fd9d91fe5a0c65b07, type: 3}
   spawnFireball: {fileID: 1407102806}
   wasAiming: 0
+  visionWavePulse: {fileID: 2949459962181768010, guid: cb162e3b5db6781878ef3935fe0368c8, type: 3}
 --- !u!95 &1675763882
 Animator:
   serializedVersion: 3
