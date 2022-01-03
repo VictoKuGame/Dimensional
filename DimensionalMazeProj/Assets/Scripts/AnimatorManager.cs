@@ -72,4 +72,12 @@ public class AnimatorManager : MonoBehaviour
         animator.SetFloat("Weapon", weapon);
     }
 
+
+
+
+
+    public void UpdateAnimatorVision(){
+        animator.SetTrigger("Vision");
+    }
+
 }

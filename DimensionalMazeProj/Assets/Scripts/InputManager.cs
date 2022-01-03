@@ -77,21 +77,18 @@ public class InputManager : MonoBehaviour
     }
     private void HandleMovementInput()
     {
-        verticalInput = movementInput.y;
-        horizontalInput = movementInput.x;
         cameraInputX = cameraInput.x;
         cameraInputY = cameraInput.y;
-        moveAmount = Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput));
         if (aim)
         {
+            verticalInput = 0;
+            horizontalInput = 0;
             wasAiming = true;
             animatorManager.UpdateAnimatorShoot(7f);
             /*Animation*/
             if (shoot && scaleSliderP.value > 0)
             {
-
-
-                Instantiate(fireball, spawnFireball.position,transform.rotation);
+                Instantiate(fireball, spawnFireball.position, transform.rotation);
                 scaleSliderP.value -= 1;
                 //*animatorManager.UpdateAnimatorShoot(0f);
                 shoot = false;
@@ -99,10 +96,12 @@ public class InputManager : MonoBehaviour
         }
         else
         {
+            verticalInput = movementInput.y;
+            horizontalInput = movementInput.x;
             animatorManager.UpdateAnimatorShoot(0f);
             wasAiming = false;
         }
-
+        moveAmount = Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput));
         animatorManager.UpdateAnimatorValues(0, moveAmount, playerLocomotion.isSprinting);
     }
 
@@ -122,14 +121,16 @@ public class InputManager : MonoBehaviour
         {
             if (sInput)
             {
+
                 sInputSwp++;
                 /*if (sInputSwp == 1)
                 {
                     maze1.generateAnotherOne(false,true);
                 }*/
-                if (scaleSliderS.value > 20)
+                if (scaleSliderS.value >= 20)
                 {
-
+                    animatorManager.UpdateAnimatorVision();
+                    //*Vision();
                     environmentTypeR1.SetActive(sInputSwp % 2 == 0);
                     environmentTypeQ1.SetActive(sInputSwp % 2 != 0);
                     //*surface.BuildNavMesh();
@@ -155,7 +156,7 @@ public class InputManager : MonoBehaviour
             if (sInput)
             {
                 sInputSwp++;
-                if (scaleSliderS.value > 20)
+                if (scaleSliderS.value >= 20)
                 {
                     environmentTypeR1.SetActive(sInputSwp % 2 == 0);
                     environmentTypeQ1.SetActive(sInputSwp % 2 != 0);
@@ -179,15 +180,11 @@ public class InputManager : MonoBehaviour
 
 
     }
+    private IEnumerator Vision()
+    {
+        yield return new WaitForSeconds(0.567f);
+    }
 }
-
-
-
-
-
-
-
-
 
 
 

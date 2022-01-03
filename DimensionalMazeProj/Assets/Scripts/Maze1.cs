@@ -20,7 +20,7 @@ public class Maze1 : MonoBehaviour
     public MazeRenderer mazeRenderer1;
     public MazeRenderer mazeRenderer2;
     public Transform light;
-
+    public Transform player;
 
 
 
@@ -30,8 +30,11 @@ public class Maze1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-
+        Vector3[] locations = new Vector3[4];
+        locations[0] = new Vector3(-(width / 2), 0, -(height / 2));
+        locations[1] = new Vector3((width / 2), 0, (height / 2));
+        locations[2] = new Vector3(-(width / 2), 0, (height / 2));
+        locations[3] = new Vector3((width / 2), 0, -(height / 2));
         for (int a = 0; a <= width; a++)
         {
             for (int b = 0; b <= height; b++)
@@ -40,11 +43,12 @@ public class Maze1 : MonoBehaviour
                 floor.transform.SetParent(transform);
             }
         }
+        player.position = locations[UnityEngine.Random.Range(0, locations.Length)];
         generateAnotherOne(true, false);
-        Instantiate(light, transform.position + new Vector3(-(width / 2), 5, -(height / 2)), Quaternion.Euler(22.5f, 45, 0)).transform.SetParent(transform);
-        Instantiate(light, transform.position + new Vector3((width / 2), 5, (height / 2)), Quaternion.Euler(22.5f, 225, 0)).transform.SetParent(transform);
-        Instantiate(light, transform.position + new Vector3(-(width / 2), 5, (height / 2)), Quaternion.Euler(22.5f, 135, 0)).transform.SetParent(transform);
-        Instantiate(light, transform.position + new Vector3((width / 2), 5, -(height / 2)), Quaternion.Euler(22.5f, -45, 0)).transform.SetParent(transform);
+        Instantiate(light, transform.position + locations[0], Quaternion.Euler(22.5f, 45, 0)).transform.SetParent(transform);
+        Instantiate(light, transform.position + locations[1], Quaternion.Euler(22.5f, 225, 0)).transform.SetParent(transform);
+        Instantiate(light, transform.position + locations[2], Quaternion.Euler(22.5f, 135, 0)).transform.SetParent(transform);
+        Instantiate(light, transform.position + locations[3], Quaternion.Euler(22.5f, -45, 0)).transform.SetParent(transform);
         generateAnotherOne(false, true);
         surface.BuildNavMesh();
     }
