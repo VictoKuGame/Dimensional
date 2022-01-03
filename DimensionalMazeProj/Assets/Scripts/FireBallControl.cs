@@ -9,10 +9,13 @@ public class FireBallControl : MonoBehaviour
     [SerializeField] ParticleSystem effect;
     [SerializeField] ParticleSystem flyEffect;
     // Update is called once per frame
+    void Start() {
+        transform.rotation*=Quaternion.Euler(0,0,49);
+    }
     void Update()
     {
         transform.Translate(Vector3.forward * Time.deltaTime * speed);
-        transform.rotation*=Quaternion.Euler(0,0,90);
+        
         Instantiate(flyEffect, transform.position, transform.rotation);
     }
     private void OnTriggerEnter(Collider collision)

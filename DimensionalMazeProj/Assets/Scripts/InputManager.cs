@@ -9,7 +9,7 @@ public class InputManager : MonoBehaviour
     PlayerControls playerControls;
     AnimatorManager animatorManager;
     public Vector2 movementInput;
-    public Vector2 cameraInput;
+    public static Vector2 cameraInput;
     public float cameraInputX;
     public float cameraInputY;
     public float moveAmount;
@@ -82,8 +82,21 @@ public class InputManager : MonoBehaviour
         cameraInputY = cameraInput.y;
         if (aim)
         {
-            transform.LookAt(Camera.main.transform);
-             transform.rotation*=Quaternion.Euler(-90,180,0);
+
+            /*Ray ray = Camera.main.ScreenPointToRay(cameraInput);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, 100.0f))
+            {
+                var projectile =
+                Instantiate(fireball, spawnFireball.position, transform.rotation);
+                // turn the projectile to hit.point
+                projectile.transform.LookAt(hit.point);
+                // accelerate it
+                projectile.GetComponent<Rigidbody>().velocity = projectile.transform.forward * 10;
+            
+            }*/
+            transform.LookAt(Camera.main.ScreenToWorldPoint(cameraInput));
+            transform.rotation *= Quaternion.Euler(-90, 180, 0);
             verticalInput = 0;
             horizontalInput = 0;
             wasAiming = true;
