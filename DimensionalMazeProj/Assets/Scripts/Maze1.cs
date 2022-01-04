@@ -7,7 +7,6 @@ public class Maze1 : MonoBehaviour
 {
 
     private int width = GameControlManage.width;
-
     public int height = GameControlManage.height;
     [SerializeField]
     private float size = 1f;
@@ -28,11 +27,12 @@ public class Maze1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        int cameraAlign = (width % 2 == 0) ? 1 : 0;
         Vector3[] locations = new Vector3[4];
         locations[0] = new Vector3(-(width / 2), 0, -(height / 2));
-        locations[1] = new Vector3((width / 2), 0, (height / 2));
+        locations[1] = new Vector3((width / 2) - cameraAlign, 0, (height / 2));
         locations[2] = new Vector3(-(width / 2), 0, (height / 2));
-        locations[3] = new Vector3((width / 2), 0, -(height / 2));
+        locations[3] = new Vector3((width / 2) - cameraAlign, 0, -(height / 2));
         for (int a = 0; a <= width; a++)
         {
             for (int b = 0; b <= height; b++)
@@ -43,10 +43,12 @@ public class Maze1 : MonoBehaviour
         }
         player.position = locations[UnityEngine.Random.Range(0, locations.Length)];
         generateAnotherOne(true, false);
-        Instantiate(light, transform.position + locations[0], Quaternion.Euler(22.5f, 45, 0)).transform.SetParent(transform);
-        Instantiate(light, transform.position + locations[1], Quaternion.Euler(22.5f, 225, 0)).transform.SetParent(transform);
-        Instantiate(light, transform.position + locations[2], Quaternion.Euler(22.5f, 135, 0)).transform.SetParent(transform);
-        Instantiate(light, transform.position + locations[3], Quaternion.Euler(22.5f, -45, 0)).transform.SetParent(transform);
+
+        Vector3 heigh5 = new Vector3(0, 1, 0);
+        Instantiate(light, transform.position + locations[0] + heigh5, Quaternion.Euler(22.5f, 45, 0)).transform.SetParent(transform);
+        Instantiate(light, transform.position + locations[1] + heigh5, Quaternion.Euler(22.5f, 225, 0)).transform.SetParent(transform);
+        Instantiate(light, transform.position + locations[2] + heigh5, Quaternion.Euler(22.5f, 135, 0)).transform.SetParent(transform);
+        Instantiate(light, transform.position + locations[3] + heigh5, Quaternion.Euler(22.5f, -45, 0)).transform.SetParent(transform);
         generateAnotherOne(false, true);
         surface.BuildNavMesh();
     }
