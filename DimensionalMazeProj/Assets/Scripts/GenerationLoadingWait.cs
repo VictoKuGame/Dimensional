@@ -16,9 +16,8 @@ public class GenerationLoadingWait : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         if (showLoader)
         {
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("MainGame1");
         }
-
     }
 }
 

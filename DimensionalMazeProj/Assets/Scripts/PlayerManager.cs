@@ -7,7 +7,7 @@ public class PlayerManager : MonoBehaviour
 {
     InputManager inputManager;
     PlayerLocomotion playerLocomotion;
-    CameraManager cameraManager; 
+    CameraManager cameraManager;
     [SerializeField] Slider HP;
     private void Awake()
     {
@@ -29,9 +29,17 @@ public class PlayerManager : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Finish"))
+
+
+
+        Scene currentScene = SceneManager.GetActiveScene();
+        string sceneName = currentScene.name;
+        if (sceneName == "Tutorial")
         {
-           SceneManager.LoadScene("Loader");
+            if (collision.gameObject.CompareTag("Finish"))
+            {
+                SceneManager.LoadScene("Loader");
+            }
         }
     }
 }

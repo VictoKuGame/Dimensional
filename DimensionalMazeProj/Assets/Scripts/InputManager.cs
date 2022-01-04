@@ -33,6 +33,8 @@ public class InputManager : MonoBehaviour
     public Transform spawnFireball;
     public bool wasAiming = false;
     public Transform visionWavePulse;
+    public GameObject pauseMenu;
+    public bool pause = false;
     private void Awake()
     {
         bInput = false;
@@ -41,6 +43,7 @@ public class InputManager : MonoBehaviour
         rInput = false;
         visionEmpty.enabled = false;
         visionEmptyBackground.enabled = false;
+        pauseMenu.SetActive(false);
         animatorManager = gameObject.GetComponent<AnimatorManager>();
         playerLocomotion = gameObject.GetComponent<PlayerLocomotion>();
         environmentTypeR1 = GameObject.FindGameObjectWithTag("EnvironmentTypeR1");
@@ -62,6 +65,7 @@ public class InputManager : MonoBehaviour
             playerControls.PlayerActions.Aim.canceled += i => aim = false;
             playerControls.PlayerActions.Shoot.performed += i => shoot = (aim) ? true : false;
             playerControls.PlayerActions.Shoot.canceled += i => shoot = false;
+            playerControls.PlayerActions.Pause.performed += i => pause = !pause;
         }
         playerControls.Enable();
     }
@@ -71,6 +75,18 @@ public class InputManager : MonoBehaviour
     }
     public void HandleAllInputs()
     {
+        if (pause)
+        {
+            Time.timeScale = 0f;
+            playerControls.Disable();
+            pauseMenu.SetActive(true);
+        }
+        else
+        {
+            Time.timeScale = 1;
+            playerControls.Enable();
+            pauseMenu.SetActive(false);
+        }
         HandleMovementInput();
         HandleSprintingInput();
         HandleVisionInput();
@@ -93,7 +109,7 @@ public class InputManager : MonoBehaviour
                 projectile.transform.LookAt(hit.point);
                 // accelerate it
                 projectile.GetComponent<Rigidbody>().velocity = projectile.transform.forward * 10;
-            
+
             }*/
             transform.LookAt(Camera.main.ScreenToWorldPoint(cameraInput));
             transform.rotation *= Quaternion.Euler(-90, 180, 0);
@@ -132,7 +148,7 @@ public class InputManager : MonoBehaviour
     {
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
-        if (sceneName == "SampleScene")
+        if (sceneName == "MainGame1")
         {
             if (sInput)
             {
@@ -187,8 +203,14 @@ public class InputManager : MonoBehaviour
     }
     private void HandleShootingInput()
     {
-
-
+    }
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("Start");
+    }
+    public void Resume()
+    {
+        pause = false;
     }
     private IEnumerator Vision()
     {

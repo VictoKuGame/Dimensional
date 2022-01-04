@@ -7,10 +7,10 @@ public class Maze1 : MonoBehaviour
 {
     [SerializeField]
     [Range(1, 50)]
-    private int width = 10;
+    public int width = 10;
     [SerializeField]
     [Range(1, 50)]
-    private int height = 10;
+    public int height = 10;
     [SerializeField]
     private float size = 1f;
     [SerializeField]
