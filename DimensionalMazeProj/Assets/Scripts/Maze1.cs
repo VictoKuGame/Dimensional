@@ -5,12 +5,10 @@ using UnityEngine;
 using UnityEngine.AI;
 public class Maze1 : MonoBehaviour
 {
-    [SerializeField]
-    [Range(1, 50)]
-    public int width = 10;
-    [SerializeField]
-    [Range(1, 50)]
-    public int height = 10;
+
+    private int width = GameControlManage.width;
+
+    public int height = GameControlManage.height;
     [SerializeField]
     private float size = 1f;
     [SerializeField]

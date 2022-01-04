@@ -29,19 +29,33 @@ public class PlayerManager : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-
-
-
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
-        if (sceneName == "Tutorial")
+
+        if (collision.gameObject.CompareTag("Finish"))
         {
-            if (collision.gameObject.CompareTag("Finish"))
+            if (sceneName != "Tutorial")
             {
-                SceneManager.LoadScene("Loader");
+                GameControlManage.level++;
+                GameControlManage.enemyHealth++;
+                if (GameControlManage.height > GameControlManage.width)
+                {
+                    GameControlManage.width++;
+                }
+                else
+                {
+                    if (GameControlManage.level % 5 == 0)
+                    {
+                        GameControlManage.enemyHealth = 1;
+                        GameControlManage.height++;
+                        GameControlManage.numOfEnemiesAtSpawn++;
+                    }
+                }
             }
+            SceneManager.LoadScene("Loader");
         }
     }
+
 }
 
 

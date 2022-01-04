@@ -17,7 +17,10 @@ public class SpawnManager : MonoBehaviour
     {
         while (true)
         {
-            Instantiate(enemy, spawnPoint.position, Quaternion.identity).transform.SetParent(transform);
+            for (int i = 0; i < GameControlManage.numOfEnemiesAtSpawn; i++)
+            {
+                Instantiate(enemy, spawnPoint.position, Quaternion.identity).transform.SetParent(transform);
+            }
             yield return new WaitForSeconds(enemySpawnFixedTimeInterval);
         }
     }

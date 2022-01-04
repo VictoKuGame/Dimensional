@@ -9,7 +9,7 @@ public class EnemyAI : MonoBehaviour
     public NavMeshAgent agent;
     public Transform player;
     public LayerMask whatIsGround, whatIsPlayer;
-    public float health;
+    private float health = GameControlManage.enemyHealth;
     //*Patroling while can't find player target .
     public Vector3 walkPoint;
     bool walkPointSet;
@@ -114,16 +114,18 @@ public class EnemyAI : MonoBehaviour
     {
         alreadyAttacked = false;
     }
-    public void TakeDamage(int damage)
+    public void TakeDamage()
     {
-        health -= damage;
+        health -= GameControlManage.playerStrength;
         if (health <= 0)
         {
-            Invoke(nameof(DestroyEnemy), 0.5f);
+            /*TODO: Hit Animation.*/
+            DestroyEnemy();
         }
     }
     private void DestroyEnemy()
     {
+        Instantiate(boom1, transform.position, transform.rotation);
         Destroy(gameObject);
     }
     private void OnDrawGizmosSelected()
@@ -141,9 +143,7 @@ public class EnemyAI : MonoBehaviour
     {
         if (collision.CompareTag("Fireball1"))
         {
-            
-            Instantiate(boom1, transform.position, transform.rotation);
-            Destroy(gameObject);
+            TakeDamage();
         }
     }
 }
