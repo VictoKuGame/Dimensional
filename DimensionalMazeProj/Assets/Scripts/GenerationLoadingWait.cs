@@ -6,18 +6,28 @@ using UnityEngine.SceneManagement;
 public class GenerationLoadingWait : MonoBehaviour
 {
     public int seconds;
-    public bool showLoader;
+    private bool continuePressed;
     void Start()
     {
         StartCoroutine(Loading());
+        continuePressed = false;
     }
     IEnumerator Loading()
     {
-        yield return new WaitForSeconds(seconds);
-        if (showLoader)
+        for (float timer = seconds; timer >= 0; timer -= Time.deltaTime)
         {
-            SceneManager.LoadScene("MainGame1");
+            if (continuePressed)
+            {
+                Continue();
+                yield break;
+            }
+            yield return null;
         }
+        Continue();
+    }
+    public void Continue()
+    {
+        SceneManager.LoadScene("MainGame1");
     }
 }
 

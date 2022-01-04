@@ -184,6 +184,8 @@ public class InputManager : MonoBehaviour
                 sInputSwp++;
                 if (scaleSliderS.value >= 20)
                 {
+                    Instantiate(visionWavePulse, transform.position, transform.rotation).transform.SetParent(transform);
+                    animatorManager.UpdateAnimatorVision();
                     environmentTypeR1.SetActive(sInputSwp % 2 == 0);
                     environmentTypeQ1.SetActive(sInputSwp % 2 != 0);
                     scaleSliderS.value -= 20;
