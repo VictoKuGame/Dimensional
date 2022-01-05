@@ -19,7 +19,15 @@
 </div>
 
 # Controls
-Use W,A,S,D to move , SPACE to change the dimension( where some walls may change their status.
+Use W,A,S,D to move ,SHIFT to sprint and  SPACE to change the dimension (where some walls may change their status).
+
+P - to pause the game and see the controls.
+
+Mouse - to rotate players perspective.
+
+Right Mouse Button - to aim.
+
+Left Mouse Button - to shoot fireballs.
 
 Was made as one a weekly task in a unity game development course.
 
