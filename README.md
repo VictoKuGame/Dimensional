@@ -8,6 +8,10 @@
 
 למעבר להסבר לחץ [כאן](https://github.com/V-LGame/Dimensional/blob/main/formal-elements.md) .
 
+ # Dimensional Videogame Release Day Trailer.
+  
+[![](http://img.youtube.com/vi/QAlmeEGnNwk/0.jpg)](http://www.youtube.com/watch?v=QAlmeEGnNwk "Dimensional Videogame Release Day Trailer.")
+  
 ## מטלה מתגלגת לשבוע 7 : למעבר להסבר לחץ [כאן](https://github.com/VictoKuGame/Dimensional/tree/main/DimensionalMazeProj).
 
 [Visit us on itch.io](https://victoku1.itch.io/mazesimulation1)
