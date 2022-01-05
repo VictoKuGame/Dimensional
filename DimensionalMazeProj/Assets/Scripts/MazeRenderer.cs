@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 public class MazeRenderer : MonoBehaviour
 {
-    private int width = 10;
-    private int height = 10;
+    private int width = GameControlManage.width;
+    private int height = GameControlManage.height;
     private float size = 1f;
     private Transform wallPrefab = null;
     private Transform floorPrefab = null;
