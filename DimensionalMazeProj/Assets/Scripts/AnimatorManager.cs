@@ -11,7 +11,6 @@ public class AnimatorManager : MonoBehaviour
         animator = gameObject.GetComponent<Animator>();
         horizontal = Animator.StringToHash("Horizontal");
         vertical = Animator.StringToHash("Vertical");
-        
     }
     public void UpdateAnimatorValues(float horizontalMovement, float verticalMovement, bool isSprinting)
     {
@@ -71,13 +70,11 @@ public class AnimatorManager : MonoBehaviour
     {
         animator.SetFloat("Weapon", weapon);
     }
-
-
-
-
-
-    public void UpdateAnimatorVision(){
+    public void UpdateAnimatorVision()
+    {
         animator.SetTrigger("Vision");
     }
-
 }
+
+
+

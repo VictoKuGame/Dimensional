@@ -98,16 +98,13 @@ public class InputManager : MonoBehaviour
         cameraInputY = cameraInput.y;
         if (aim)
         {
-
             /*Ray ray = Camera.main.ScreenPointToRay(cameraInput);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, 100.0f))
             {
                 var projectile =
                 Instantiate(fireball, spawnFireball.position, transform.rotation);
-                // turn the projectile to hit.point
                 projectile.transform.LookAt(hit.point);
-                // accelerate it
                 projectile.GetComponent<Rigidbody>().velocity = projectile.transform.forward * 10;
 
             }*/
@@ -121,7 +118,6 @@ public class InputManager : MonoBehaviour
             {
                 Instantiate(fireball, spawnFireball.position, transform.rotation);
                 scaleSliderP.value -= 1;
-                //*animatorManager.UpdateAnimatorShoot(0f);
                 shoot = false;
             }
         }
@@ -135,7 +131,6 @@ public class InputManager : MonoBehaviour
         moveAmount = Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput));
         animatorManager.UpdateAnimatorValues(0, moveAmount, playerLocomotion.isSprinting);
     }
-
     private void HandleSprintingInput()
     {
         playerLocomotion.isSprinting = (bInput && moveAmount > 0.5f);
@@ -219,6 +214,11 @@ public class InputManager : MonoBehaviour
         yield return new WaitForSeconds(0.567f);
     }
 }
+
+
+
+
+
 
 
 

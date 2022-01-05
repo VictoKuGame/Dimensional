@@ -12,22 +12,18 @@ public enum WallState
     DOWN = 8,
     VISITED = 128,
 }
-
 public struct Position
 {
     public int X;
     public int Y;
 }
-
 public struct Neighbor
 {
     public Position Position;
     public WallState SharedWall;
 }
-
 public static class MazeGenerator
 {
-
     private static WallState GetOppositeWall(WallState wall)
     {
         switch (wall)
@@ -105,10 +101,6 @@ public static class MazeGenerator
         return ApplyRecursiveBacktracker(maze, width, height);
     }
 }
-
-
-
-
 
 
 

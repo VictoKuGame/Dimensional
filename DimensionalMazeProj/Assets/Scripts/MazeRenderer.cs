@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class MazeRenderer : MonoBehaviour
 {
     private int width = 10;
@@ -10,7 +9,6 @@ public class MazeRenderer : MonoBehaviour
     private float size = 1f;
     private Transform wallPrefab = null;
     private Transform floorPrefab = null;
-    // Start is called before the first frame update
     public void initMap(int width,int height,float size,Transform wallPrefab,Transform floorPrefab){
         foreach (Transform child in transform) {
              GameObject.Destroy(child.gameObject);
@@ -68,3 +66,13 @@ public class MazeRenderer : MonoBehaviour
         }
     }
 }
+
+
+
+
+
+
+
+
+
+

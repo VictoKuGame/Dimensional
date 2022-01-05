@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class MiniMapScript : MonoBehaviour
 {
     public Transform player;
@@ -11,6 +10,11 @@ public class MiniMapScript : MonoBehaviour
         newPosition.y = transform.position.y;
         transform.position = newPosition;
     }
-
 }
+
+
+
+
+
+
 

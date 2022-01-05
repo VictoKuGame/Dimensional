@@ -36,7 +36,6 @@ public class Maze1 : MonoBehaviour
         }
         player.position = locations[UnityEngine.Random.Range(0, locations.Length)];
         generateAnotherOne(true, false);
-
         surface.BuildNavMesh();
         Vector3 heigh5 = new Vector3(0, 1, 0);
         Instantiate(light, transform.position + locations[0] + heigh5, Quaternion.Euler(22.5f, 45, 0)).transform.SetParent(transform);
@@ -58,6 +57,7 @@ public class Maze1 : MonoBehaviour
         }
     }
 }
+
 
 
 

@@ -8,12 +8,6 @@ public class LoaderTextControl : MonoBehaviour
     public Text textElement1, textElement2;
     void Start()
     {
-        /*if (GameControlManage.level == 1)
-        {
-            textValue = "Congratulations, you've finished your tutorial.\nNow, lets generate a random maze.\nWait a sec....";
-        }
-        */
-
         if (GameControlManage.punched)
         {
             GameControlManage.punched = false;
@@ -33,6 +27,8 @@ public class LoaderTextControl : MonoBehaviour
         textElement2.text = textValue2;
     }
 }
+
+
 
 
 

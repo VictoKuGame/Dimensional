@@ -10,14 +10,11 @@ public class EnemyAI : MonoBehaviour
     public Transform player;
     public LayerMask whatIsGround, whatIsPlayer;
     private float health = GameControlManage.enemyHealth;
-    //*Patroling while can't find player target .
     public Vector3 walkPoint;
     bool walkPointSet;
     public float walkPointRange;
-    //*Attacking.
     public float timeBetweenAttacks;
     bool alreadyAttacked = false;
-    //*States.
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
     public Transform boom1;
@@ -28,7 +25,6 @@ public class EnemyAI : MonoBehaviour
     }
     private void Update()
     {
-        //.Check for sight and attack range.
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
@@ -59,7 +55,6 @@ public class EnemyAI : MonoBehaviour
             agent.SetDestination(walkPoint);
         }
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
-        //*Walkpoint reached.
         if (distanceToWalkPoint.magnitude < 1f)
         {
             walkPointSet = false;
@@ -67,7 +62,6 @@ public class EnemyAI : MonoBehaviour
     }
     private void SearchWalkPoint()
     {
-        //*Calculate random point in range.
         float randomZ = Random.Range(-walkPointRange, walkPointRange);
         float randomX = Random.Range(-walkPointRange, walkPointRange);
         walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
@@ -78,27 +72,15 @@ public class EnemyAI : MonoBehaviour
     }
     private void ChasePlayer()
     {
-        //*transform.LookAt(player);
         agent.SetDestination(player.position);
     }
     private void AttackPlayer()
     {
-        //Make sure enemy doesn't move
         agent.SetDestination(transform.position);
-
         transform.LookAt(player);
 
         if (!alreadyAttacked)
         {
-            /*Attack code here.
-            .
-            .
-            .
-            .
-            */
-
-
-
             alreadyAttacked = true;
             enemyAnimator.UpdateAnimatorValues(attack);
 
@@ -130,10 +112,6 @@ public class EnemyAI : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, sightRange);
     }
-
-
-
-
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.CompareTag("Fireball1"))
@@ -142,8 +120,6 @@ public class EnemyAI : MonoBehaviour
         }
     }
 }
-
-
 
 
 

@@ -55,7 +55,6 @@ public class PlayerManager : MonoBehaviour
             SceneManager.LoadScene("Loader");
         }
     }
-
     private void Hit()
     {
         if (HP.value >= 25)

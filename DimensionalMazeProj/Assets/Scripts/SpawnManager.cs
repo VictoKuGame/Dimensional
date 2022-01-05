@@ -6,13 +6,10 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] Transform spawnPoint;
     [SerializeField] GameObject enemy;
     public float enemySpawnFixedTimeInterval;
-
-
     void Start()
     {
         StartCoroutine(EnemySpawner());
     }
-
     IEnumerator EnemySpawner()
     {
         while (true)
@@ -25,10 +22,6 @@ public class SpawnManager : MonoBehaviour
         }
     }
 }
-
-
-
-
 
 
 

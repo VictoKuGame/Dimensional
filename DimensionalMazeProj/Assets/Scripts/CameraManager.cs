@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class CameraManager : MonoBehaviour
 {
     InputManager inputManager;
@@ -25,7 +24,6 @@ public class CameraManager : MonoBehaviour
     private void Awake()
     {
         inputManager = FindObjectOfType(typeof(InputManager)) as InputManager;
-        //*targetTransform = gameObject.GetComponent<PlayerManager>().transform;
         cameraTransform = Camera.main.transform;
         defaultPosition = cameraTransform.localPosition.z;
     }
@@ -45,7 +43,6 @@ public class CameraManager : MonoBehaviour
         lookAngle += (inputManager.cameraInputX * cameraLookSpeed);
         pivotAngle -= (inputManager.cameraInputY * cameraPivotSpeed);
         pivotAngle = Mathf.Clamp(pivotAngle, minimumPivotAngle, maximumPivotAngle);
-        //*Should make the camera turn accordingly to the player rotation .
         Vector3 rotation = Vector3.zero;
         rotation.y = lookAngle;
         Quaternion targetRotation = Quaternion.Euler(rotation);
@@ -74,5 +71,10 @@ public class CameraManager : MonoBehaviour
         cameraTransform.localPosition = cameraVectorPosition;
     }
 }
+
+
+
+
+
 
 

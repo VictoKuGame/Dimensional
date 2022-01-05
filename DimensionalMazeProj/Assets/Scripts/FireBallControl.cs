@@ -1,10 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class FireBallControl : MonoBehaviour
 {
-
     [SerializeField] float speed;
     [SerializeField] ParticleSystem effect;
     [SerializeField] ParticleSystem flyEffect;
@@ -31,3 +29,8 @@ public class FireBallControl : MonoBehaviour
         Destroy(gameObject);
     }
 }
+
+
+
+
+
