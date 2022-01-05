@@ -523,8 +523,8 @@ MonoBehaviour:
   minimumCollisionOffSet: 0.39
   cameraCollisionRadius: 2
   cameraFollowSpeed: 0.21
-  cameraLookSpeed: 2
-  cameraPivotSpeed: 2
+  cameraLookSpeed: 1
+  cameraPivotSpeed: 1
   lookAngle: 0
   pivotAngle: 0
   minimumPivotAngle: -35
@@ -3396,7 +3396,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 116
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!1 &1682607309
 GameObject:
   m_ObjectHideFlags: 0
@@ -4102,15 +4102,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5537132376529768365, guid: b699cb8a9aded29bebf5c692775896da, type: 3}
       propertyPath: m_LocalScale.x
-      value: 15
+      value: 18.9
       objectReference: {fileID: 0}
     - target: {fileID: 5537132376529768365, guid: b699cb8a9aded29bebf5c692775896da, type: 3}
       propertyPath: m_LocalScale.y
-      value: 15
+      value: 18.8
       objectReference: {fileID: 0}
     - target: {fileID: 5537132376529768365, guid: b699cb8a9aded29bebf5c692775896da, type: 3}
       propertyPath: m_LocalScale.z
-      value: 15
+      value: 18.8
       objectReference: {fileID: 0}
     - target: {fileID: 5537132376529768365, guid: b699cb8a9aded29bebf5c692775896da, type: 3}
       propertyPath: m_LocalPosition.x

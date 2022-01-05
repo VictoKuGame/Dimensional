@@ -20,10 +20,6 @@ public class EnemyAI : MonoBehaviour
     //*States.
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
-
-
-
-
     public Transform boom1;
     private void Awake()
     {
@@ -38,8 +34,8 @@ public class EnemyAI : MonoBehaviour
 
         if (!playerInSightRange && !playerInAttackRange)
         {
-            Patroling();
-            enemyAnimator.UpdateAnimatorValues(idle);
+            //*Patroling();
+            //*enemyAnimator.UpdateAnimatorValues(idle);
         }
         if (playerInSightRange && !playerInAttackRange)
         {
@@ -100,7 +96,6 @@ public class EnemyAI : MonoBehaviour
             .
             .
             */
-
 
 
 

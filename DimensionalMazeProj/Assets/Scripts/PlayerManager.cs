@@ -56,6 +56,25 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    private void Hit()
+    {
+        if (HP.value >= 25)
+        {
+            HP.value -= 25;
+        }
+        else
+        {
+            GameControlManage.punched = true;
+            SceneManager.LoadScene("Loader");
+        }
+    }
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            Hit();
+        }
+    }
 }
 
 

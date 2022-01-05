@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: monster_orc Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 100072, guid: 61b8698a2176146289745095c88a5155, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 400072, guid: 61b8698a2176146289745095c88a5155, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -97,7 +101,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 1
   m_Constraints: 116
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!136 &1195329382
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -108,10 +112,23 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.5676441
   m_Height: 2.5691957
   m_Direction: 1
-  m_Center: {x: 0, y: 1.2154021, z: 0}
+  m_Center: {x: 0, y: 1.2154021, z: 0.06764412}
+--- !u!135 &6928278820621386663
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6094887939488354960}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.49
+  m_Center: {x: 0, y: 1, z: 0.5}
 --- !u!195 &1195329379
 NavMeshAgent:
   m_ObjectHideFlags: 0
