@@ -2765,7 +2765,9 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Controls: W,A,S,D to move, SHIFT to sprint, SPACE  to see the world from
-    other dimensions.'
+    other dimensions.
+
+    P to pause and read the controls.'
 --- !u!222 &1460066764
 CanvasRenderer:
   m_ObjectHideFlags: 0

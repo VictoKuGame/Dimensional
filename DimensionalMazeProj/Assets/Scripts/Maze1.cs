@@ -5,7 +5,6 @@ using UnityEngine;
 using UnityEngine.AI;
 public class Maze1 : MonoBehaviour
 {
-
     private int width = GameControlManage.width;
     public int height = GameControlManage.height;
     [SerializeField]
@@ -18,13 +17,7 @@ public class Maze1 : MonoBehaviour
     public MazeRenderer mazeRenderer2;
     public Transform light;
     public Transform player;
-
-
-
-
-
     public NavMeshSurface surface;
-    // Start is called before the first frame update
     void Start()
     {
         int cameraAlign = (width % 2 == 0) ? 1 : 0;
@@ -65,7 +58,6 @@ public class Maze1 : MonoBehaviour
         }
     }
 }
-
 
 
 
