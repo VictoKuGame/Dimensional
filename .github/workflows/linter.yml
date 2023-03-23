@@ -47,4 +47,28 @@ jobs:
           VALIDATE_ALL_CODEBASE: false
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          VALIDATE_SRC_PATH: "Assets/Scripts/**/*.cs"
+          LINTER_RULES: >
+            {
+              "ansible": false,
+              "arm": false,
+              "cfn": false,
+              "csharp": true,
+              "dockerfile": false,
+              "golang": false,
+              "hadolint": false,
+              "html": false,
+              "java": false,
+              "javascript": false,
+              "json": false,
+              "kotlin": false,
+              "lua": false,
+              "markdown": false,
+              "php": false,
+              "powershell": false,
+              "python": false,
+              "ruby": false,
+              "shell": false,
+              "terraform": false,
+              "typescript": false,
+              "yaml": false
+            }
